@@ -4,7 +4,7 @@ echo "Downloading eat..."
 git clone https://github.com/Tyler887/eat.git ~/Eat-PKG-Manager
 echo "Symlinking eat command to the python script..."
 mkdir ~/EatPKGSymlink
-eho -n "" >> ~/EatPKGSymlink/eat
+echo -n "" >> ~/EatPKGSymlink/eat # new Symlink
 echo "#!/usr/bin/bash" >> ~/EatPKGSymlink/eat
 echo "python3 ~/Eat-PKG-Manager/eat.py" >> ~/EatPKGSymlink/eat
 echo "Forcing BASH to add Eat to the path..."
