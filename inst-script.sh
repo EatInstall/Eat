@@ -3,7 +3,8 @@ sudo apt-get install python3 python-is-python3 python3-requests python3-colorama
 echo "Downloading eat..."
 git clone https://github.com/Tyler887/eat.git ~/Eat-PKG-Manager
 echo "Symlinking eat command to the python script..."
-touch ~/EatPKGSymlink/eat
+mkdir ~/EatPKGSymlink
+eho -n "" >> ~/EatPKGSymlink/eat
 echo "#!/usr/bin/bash" >> ~/EatPKGSymlink/eat
 echo "python3 ~/Eat-PKG-Manager/eat.py" >> ~/EatPKGSymlink/eat
 echo "Forcing BASH to add Eat to the path..."
