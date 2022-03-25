@@ -63,13 +63,14 @@ with open(f"~/eat_sources/{args.target}.yaml", "r") as manifest:
      exit(1)
   packageRequirements = convertedManifest['depends']
   for i in packageRequirements:
-     if not posix_tools.path.isdir(f"~/Eat-Apps/{i}"):
+     if not posix_tools.path.isdir(f"~/eat_app_{i}"):
         shutil.rmtree("~/eat_sources")
         print(f"{Fore.RED}Error:{Style.RESET_ALL} This package requires other packages in order to function. Please install them and try again.\nThe first package detected was: {i}")
         exit(1)
   packageSuggestions = convertedManifest['should_install']
   for i in packageSuggestions:
-      print(f"{Fore.YELLOW}Warning:{Style.RESET_ALL} The following package is recommended for {args.target}: {i}")
+        if not posix_tools.path.isdir(f"~/eat_app_{i}"):
+            print(f"{Fore.YELLOW}Warning:{Style.RESET_ALL} The following package is recommended for {args.target}: {i}")
   url = packageUri
   response = urllib.request.urlopen(url)
   data = response.read()      # a `bytes` object
