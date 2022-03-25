@@ -47,7 +47,6 @@ if not posix_tools.path.isfile(f"~/eat_sources/{args.target}.yaml"):
    exit(1)
 with open(f"~/eat_sources/{args.target}.yaml", "r") as manifest:
   global packageUri
-  global packageVersion
   global packageRequiresAdmin
   global packageSuggestions
   global packageRequirements
