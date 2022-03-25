@@ -7,4 +7,5 @@ echo "Symlinking eat command to the python script..."
 echo "" >> ~/.bashrc
 echo "# Add eat package manager to the path." >> ~/.bashrc
 echo "alias eat='python ~/EatPKGManager/eat.py'" >> ~/.bashrc
+echo "alias eatinst='python ~/EatPKGManager/eat-install.py'" >> ~/.bashrc
 echo "Eat was installed. Please restart your shell to apply the changes."
