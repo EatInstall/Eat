@@ -6,6 +6,6 @@ git clone https://github.com/Tyler887/eat.git ~/Eat-PKG-Manager
 echo "Symlinking eat command to the python script..."
 echo "" >> ~/.bashrc
 echo "# Add eat package manager commands." >> ~/.bashrc
-echo "alias eat='python ~/EatPKGManager/eat.py'" >> ~/.bashrc
-echo "alias eatinst='python ~/EatPKGManager/eat-install.py'" >> ~/.bashrc
+echo "alias eat='python ~/Eat-PKG-Manager/eat.py'" >> ~/.bashrc
+echo "alias eatinst='python ~/Eat-PKG-Manager/eat-install.py'" >> ~/.bashrc
 echo "Eat was installed. Please restart your shell to apply the changes."
