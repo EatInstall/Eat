@@ -11,5 +11,5 @@ echo "python3 ~/Eat-PKG-Manager/eat.py" >> ~/EatPKGSymlink/eat
 echo "Forcing BASH to add Eat to the path..."
 echo "" >> ~/.bashrc
 echo "# Add eat package manager to the path." >> ~/.bashrc
-echo "export PATH=$PATH:~/EatPKGSymlink" >> ~/.bashrc
+echo "alias eat='python ~/EatPKGManager/eat.py'" >> ~/.bashrc
 echo "Eat was installed. Please restart your shell to apply the changes."
