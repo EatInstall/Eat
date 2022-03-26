@@ -23,7 +23,7 @@ if not posix_tools.path.isdir(f"{UserHome}/eat_sources"):
 else:
   print("Updating sources...")
   posix_tools.system("bash ~/Eat-PKG-Manager/update-sources.sh")
-  print(f"\nEat Utilities: {Fore.GREEN}Completed updating sources!{Style.RESET_ALL}")
+  print(f"Eat Utilities: {Fore.GREEN}Completed updating sources!{Style.RESET_ALL}")
 print(f"Installing {args.target}...")
 if not posix_tools.path.isfile(f"{UserHome}/eat_sources/{args.target}.yaml"):
    print(f"{Fore.RED}Error:{Style.RESET_ALL} No such manifest in Eat network. The network is open-source, feel free to add your own manifests:\nhttps://github.com/Tyler887/eat-network")
