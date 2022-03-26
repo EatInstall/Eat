@@ -27,17 +27,17 @@ if not posix_tools.path.isdir(f"{UserHome}/eat_sources"):
   posix_tools.system("git clone https://github.com/Tyler887/eat-network ~/eat_sources > /dev/null")
   print(f"\nEat Utilities: {Fore.GREEN}Completed retrevial of sources!{Style.RESET_ALL}")
 else:
-  global outofdate
+ try:
   posix_tools.system(f"git clone https://github.com/Tyler887/eat {UserHome}/comparison_eat_both --depth 1")
   for i in glob.glob(f"{UserHome}/Eat-PKG-Manager/*"):
    if posix_tools.path.isfile(i):
     with open(i, "r") as f:
         if open(f"{UserHome}/Eat-PKG-Manager/{posix_tools.path.basename(i)}", "r").read() != open(f"{UserHome}/eat_comparison_both/{posix_tools.path.basename(i)}", "r").read():
-         print(f"Not up to date. You  update eat.")
-#------------------------------------------------------------------------------
-         shutil.rmtree(f"{UserHome}/comparison_eat_both")
-        else:
-            shutil.rmtree(f"{UserHome}/comparison_eat_both")
+         print(f"{Fore.YELLOW}Warning:{Style.RESET_ALL} Not up to date. Upgrade to the latest version now.")
+         break
+ except Exception as e:
+    print(f"{Fore.YELLOW}Warning:{Style.RESET_ALL} Update check error: {e}")
+shutil.rmtree(f"{UserHome}/comparison_eat_both")
 print(f"Installing {args.target}...")
 if not posix_tools.path.isfile(f"{UserHome}/eat_sources/{args.target}.yaml"):
    print(f"{Fore.RED}Error:{Style.RESET_ALL} No such manifest in Eat network. The network is open-source, feel free to add your own manifests:\nhttps://github.com/Tyler887/eat-network")
