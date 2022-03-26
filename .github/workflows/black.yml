@@ -39,4 +39,6 @@ jobs:
         run: |
           git add .
           git commit -m "Black format"
+          git comfig user.Name "github-actions[bot]" --global
+          git config user.Email "github-actions[bot]@users.noreply.github.com" --global
           git push
