@@ -2,7 +2,7 @@ NAME
         eat - the package manager for Linux
 
 SYNOPSIS
-        eatinst package [-h] [-d]
+        eatinst package [-h]
         eathelp
 
 DESCRIPTION
@@ -14,7 +14,6 @@ ARGUMENTS
    eatinst
      OPTIONAL
         -h: Display help message
-        -d: Download only, don't install
      POSITIONAL
         target: what to install
 
