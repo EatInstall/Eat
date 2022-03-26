@@ -44,7 +44,7 @@ with open(f"{UserHome}/eat_sources/{args.target}.yaml", "r") as manifest:
   try:
     packageRequiresAdmin = convertedManifest['sudo_necessary']
   except KeyError:
-    paxkageRequiresAdmin = False
+    packageRequiresAdmin = False
   if packageRequiresAdmin and posix_tools.geteuid() != 0:
      shutil.rmtree(f"{UserHome}/eat_sources")
      print(f"{Fore.RED}Error:{Style.RESET_ALL} Installing this package requires root access, maybe try with sudo?")
