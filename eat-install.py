@@ -23,7 +23,7 @@ c.stdout.write("\rCollecting sources...")
 # License: https://stackoverflow.com/help/licensing
 url = 'https://github.com/Tyler887/eat-network/releases/latest/download/sources.zip'
 response = urllib.request.urlopen(url)
-data = str(response.read())      # a `str` object
+data = response.read()
 c.stdout.flush()
 c.stdout.write("\rMoving sources archive to user directory...")
 with open(f"{UserHome}/eat_sources.zip", "w") as file:
