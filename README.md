@@ -1,2 +1,2 @@
-# eat
-package manager for Linux
+# `eat`
+The package manager for Linux.
