@@ -16,7 +16,7 @@ parser.add_argument('target', type=str,
                     help='package to install')
 args = parser.parse_args()
 
-if not os.path.isdir(f"{UserHome}/eat_sources"):
+if not posix_tools.path.isdir(f"{UserHome}/eat_sources"):
   print("Need to collect sources to install.\nCollecting sources...")
   posix_tools.system("git clone https://github.com/Tyler887/eat-network ~/eat_sources")
   print(f"\nEat Utilities: {Fore.GREEN}Completed retrevial of sources!{Style.RESET_ALL}")
