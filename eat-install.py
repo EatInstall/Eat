@@ -28,7 +28,7 @@ if not posix_tools.path.isdir(f"{UserHome}/eat_sources"):
   print(f"\nEat Utilities: {Fore.GREEN}Completed retrevial of sources!{Style.RESET_ALL}")
 else:
   global outofdate
-  posix_tools.system("git clone https://github.com/Tyler887/eat ~/comparison_eat_both --depth 1")
+  posix_tools.system(f"git clone https://github.com/Tyler887/eat {UserHome}/comparison_eat_both --depth 1")
   for i in glob.glob(f"{UserHome}/Eat-PKG-Manager/*"):
    if posix_tools.path.isfile(i):
     with open(i, "r") as f:
