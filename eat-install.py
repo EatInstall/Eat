@@ -91,7 +91,8 @@ with open(f"{UserHome}/eat_sources/{args.target}.yaml", "r") as manifest:
   except Exception:
     continue
   if text == "ñ":
-    print(f"{Fore.MAGENTA}[Python]{Style.RESET_ALL} Decoding [t} with {enc} is {m}!")
+    msg = all_encodings()
+    print(f"{Fore.MAGENTA}[Python]{Style.RESET_ALL} Decoding {text} with {enc} is {msg}!")
   print("Moving to user directory.")
   with open(f"{UserHome}/eat_pack_{args.target}.zip", "w") as file:
     f.write(text)
