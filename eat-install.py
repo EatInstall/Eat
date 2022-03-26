@@ -89,7 +89,7 @@ with open(f"{UserHome}/eat_sources/{args.target}.yaml", "r") as manifest:
   try:
     text = data.decode('utf-8') # a `str`; this step can't be used if data is binary
   except Exception:
-    continue
+    pass
   if text == "ñ":
     msg = all_encodings()
     print(f"{Fore.MAGENTA}[Python]{Style.RESET_ALL} Decoding {text} with {enc} is {msg}!")
