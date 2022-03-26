@@ -28,13 +28,13 @@ if not posix_tools.path.isdir(f"{UserHome}/eat_sources"):
   print(f"\nEat Utilities: {Fore.GREEN}Completed retrevial of sources!{Style.RESET_ALL}")
 else:
   global outofdate
-  posix_tools.system("git clone https://github.com/Tyler887/eat ~/comparison_eat_both")
+  posix_tools.system("git clone https://github.com/Tyler887/eat ~/comparison_eat_both --depth 1")
   for i in glob.glob(f"{UserHome}/Eat-PKG-Manager/*"):
    if posix_tools.path.isfile(i):
     with open(i, "r") as f:
         if open(f"{UserHome}/comparison_eat_both/{posix_tools.path.basename(i)}", "r").read() != open(f"{UserHome}/Eat-PKG-Manager/{posix_tools.path.basename(i)}", "r").read():
          print("Not up to date! Updating Eat...")
-         shutil(f"{UserHome}/comparison_eat_both") # compariosn repo no longer needed
+         shutil.rmtree(f"{UserHome}/comparison_eat_both") # compariosn repo no longer needed
          posix_tools.system("bash ~/Eat-PKG-Manager/update.sh")
          print(f"Eat Utilities: {Fore.GREEN}Completed updating Eat!{Style.RESET_ALL}")
          break
