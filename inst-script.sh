@@ -1,9 +1,10 @@
 # license: GPLv3+: GPL version 3 or later
-echo "Installing dependencies (may request user password due to sudo)..."
-sudo apt-get install python3 python-is-python3 python3-requests python3-colorama python3-pip python3-pyyaml git -y # apt does not have a stable CLI interface. Use with caution in scripts.
+sudo echo -n ""
+echo "Installing dependencies..."
+sudo apt-get install python3 python-is-python3 python3-requests python3-colorama python3-pip python3-pyyaml git -y >> /dev/null # apt does not have a stable CLI interface. Use with caution in scripts.
 echo "Downloading eat..."
-git clone https://github.com/Tyler887/eat.git ~/Eat-PKG-Manager
-echo "Symlinking eat command to the python script..."
+git clone https://github.com/Tyler887/eat.git ~/Eat-PKG-Manager >> /dev/null
+echo "Creating commands..."
 echo "" >> ~/.bashrc
 echo "# Add eat package manager commands." >> ~/.bashrc
 echo "alias eat='python ~/Eat-PKG-Manager/eat.py'" >> ~/.bashrc
