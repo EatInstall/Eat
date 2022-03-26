@@ -32,11 +32,10 @@ else:
   for i in glob.glob(f"{UserHome}/Eat-PKG-Manager/*"):
    if posix_tools.path.isfile(i):
     with open(i, "r") as f:
-        if open(f"{UserHome}/comparison_eat_both/{posix_tools.path.basename(i)}", "r").read() != open(f"{UserHome}/Eat-PKG-Manager/{posix_tools.path.basename(i)}", "r").read():
-         print("Not up to date. You must update eat.")
+        if open(f"{UserHome}/Eat-PKG-Manager/{posix_tools.path.basename(i)}", "r").read() != open(f"{UserHome}/eat_comparison_both/{posix_tools.path.basename(i)}", "r").read():
+         print(f"Not up to date. You  update eat.")
 #------------------------------------------------------------------------------
          shutil.rmtree(f"{UserHome}/comparison_eat_both")
-         exit()
         else:
             shutil.rmtree(f"{UserHome}/comparison_eat_both")
 print(f"Installing {args.target}...")
