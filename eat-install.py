@@ -22,11 +22,10 @@ c.stdout.write("\rCollecting sources...")
 url = 'https://github.com/Tyler887/eat-network/releases/latest/download/sources.zip'
 response = urllib.request.urlopen(url)
 data = response.read()      # a `bytes` object
-text = data.decode('utf-8') # a `str`; this step can't be used if data is binary
 c.stdout.flush()
 c.stdout.write("\rMoving sources archive to user directory...")
 with open("~/eat_sources.zip", "w") as file:
-  f.write(text)
+  f.write(data)
 
 c.stdout.flush()
 c.stdout.write("\rUnzipping downloaded source archives...                 ") # the whitespace is  necessary to prevent unexpected text spill lol
