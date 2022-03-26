@@ -29,7 +29,7 @@ if not posix_tools.path.isdir(f"{UserHome}/eat_sources"):
 else:
   posix_tools.system("git clone https://github.com/Tyler887/eat ~/comparison_eat_both")
   for i in glob.glob(f"{UserHome}/Eat-PKG-Manager/*"):
-   if os.path.isfile(i):
+   if posix_tools.path.isfile(i):
     with open(i, "r") as f:
         if open(f"{UserHome}/comparison_eat_both/{os.path.basename(i)}", "r").read() != open(f"{UserHome}/Eat-PKG-Manager/{os.path.basename(i)}", "r").read():
             outofdate = 1
