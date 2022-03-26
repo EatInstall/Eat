@@ -25,5 +25,5 @@ CONTRIBUTE
         (https://github.com/Tyler887/eat-network), and report bugs (https://github.com/Tyler887/eat/issues).
         
 COPYRIGHT
-        The eat package manager is under the GPLv3, and this document is under the GNU All-Permissive
+        The eat package manager is under the GNU GPLv3, and this document is under the GNU All-Permissive
         License.
