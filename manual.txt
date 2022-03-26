@@ -1,0 +1,30 @@
+NAME
+        eat - the package manager for Linux
+
+SYNOPSIS
+        eatinst package [-h] [-d]
+        eathelp
+
+DESCRIPTION
+        eat is a package manager that installs programs without touching the actual Linux system. It downloads
+        and installs programs from YAML manifests. It extracts the YAML manifest and gets out the metadata
+        of the applicationn, and adds it to your PATH.
+
+ARGUMENTS
+   eatinst
+     OPTIONAL
+        -h: Display help message
+        -d: Download only, don't install
+     POSITIONAL
+        target: what to install
+
+CONTRIBUTE
+        Eat is released to the public under the GNU General Public License, along with it's
+        sources.
+        
+        Help contribute to Eat and the free software domain by adding new manifests to the sources
+        (https://github.com/Tyler887/eat-network), and report bugs (https://github.com/Tyler887/eat/issues).
+        
+COPYRIGHT
+        The eat package manager is under the GPLv3, and this document is under the GNU All-Permissive
+        License.
