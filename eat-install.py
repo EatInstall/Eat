@@ -33,10 +33,9 @@ else:
    if posix_tools.path.isfile(i):
     with open(i, "r") as f:
         if open(f"{UserHome}/comparison_eat_both/{posix_tools.path.basename(i)}", "r").read() != open(f"{UserHome}/Eat-PKG-Manager/{posix_tools.path.basename(i)}", "r").read():
-         print("Not up to date! Updating Eat...")
-         posix_tools.system("bash ~/Eat-PKG-Manager/update.sh")
-         shutil.rmtree(f"{UserHome}/comparison_eat_both") # compariosn repo no longer needed
-         print(f"Eat Utilities: {Fore.GREEN}Completed updating Eat!{Style.RESET_ALL}")
+         print("Not up to date. You must update eat.")
+#------------------------------------------------------------------------------
+         shutil.rmtree(f"{UserHome}/comparison_eat_both")
          exit()
         else:
             shutil.rmtree(f"{UserHome}/comparison_eat_both")
