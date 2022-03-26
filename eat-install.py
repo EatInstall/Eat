@@ -31,7 +31,7 @@ else:
   for i in glob.glob(f"{UserHome}/Eat-PKG-Manager/*"):
    if posix_tools.path.isfile(i):
     with open(i, "r") as f:
-        if open(f"{UserHome}/comparison_eat_both/{os.path.basename(i)}", "r").read() != open(f"{UserHome}/Eat-PKG-Manager/{os.path.basename(i)}", "r").read():
+        if open(f"{UserHome}/comparison_eat_both/{posix_tools.path.basename(i)}", "r").read() != open(f"{UserHome}/Eat-PKG-Manager/{posix_tools.path.basename(i)}", "r").read():
             outofdate = 1
             break
   if outofdate:
