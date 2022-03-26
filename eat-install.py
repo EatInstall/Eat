@@ -20,7 +20,9 @@ if not posix_tools.path.isdir(f"{UserHome}/eat_sources"):
   print("Need to collect sources to install.\nCollecting sources...")
   posix_tools.system("git clone https://github.com/Tyler887/eat-network ~/eat_sources")
   print(f"\nEat Utilities: {Fore.GREEN}Completed retrevial of sources!{Style.RESET_ALL}")
-
+else:
+  print("Updating sources...")
+  posix_tools.system("bash ~/Eat-PKG-Manager/update-sources.sh")
 print(f"Installing {args.target}...")
 if not posix_tools.path.isfile(f"{UserHome}/eat_sources/{args.target}.yaml"):
    print(f"{Fore.RED}Error:{Style.RESET_ALL} No such manifest in Eat network. The network is open-source, feel free to add your own manifests:\nhttps://github.com/Tyler887/eat-network")
