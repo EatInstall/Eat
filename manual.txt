@@ -12,9 +12,9 @@ DESCRIPTION
 
 ARGUMENTS
    eatinst
-     OPTIONAL
+     Optional
         -h: Display help message
-     POSITIONAL
+     Positional
         target: what to install
 
 CONTRIBUTE
