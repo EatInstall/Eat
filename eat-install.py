@@ -53,7 +53,7 @@ else:
                             "r",
                         ).read()
                         != open(
-                            f"{UserHome}/eat_comparison_both/{posix_tools.path.basename(i)}",
+                            f"{UserHome}/comparison_eat_both/{posix_tools.path.basename(i)}",
                             "r",
                         ).read()
                     ):
@@ -181,7 +181,7 @@ with open(f"{UserHome}/eat_sources/{args.target}.yaml", "r") as manifest:
                 f"{Fore.YELLOW}Warning:{Style.RESET_ALL} No binaries found! You need to compile this program manually and update .bashrc as required to use this app."
             )
         with open(f"{UserHome}/.bashrc", "w") as bashrc:
-            if not packageBinary == "Checking":
+            if not packageBinary == "n/a":
                 bashrc.write(
                     f"\n# add command for {args.target}\nalias {args.target}='{UserHome}/eat_app_{args.target}/{packageBinary}'"
                 )
