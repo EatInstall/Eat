@@ -34,8 +34,9 @@ with open(f"{UserHome}/eat_sources/{args.target}.yaml", "r") as manifest:
   convertedManifest = yaml.full_load(manifest.read()) # Convert YAML manifest to Python dictionary
   try:
     packageUri = convertedManifest['uri']
-  expect KeyError:
+  except KeyError:
     print(f"{Fore.RED}Error:{Style.RESET_ALL} You must set a URI for the package. Set 'uri' in the Manifest.")
+    exit(1)
   if not packageUri.endswith(".zip") and not packageUri.endswith(".tar.gz"):
       print(f"{Fore.RED}Error:{Style.RESET_ALL} Only zip and gzip-tarred packages are compatible with eat at the moment.")
       shutil.rmtree(f"{UserHome}/eat_sources")
@@ -50,14 +51,17 @@ with open(f"{UserHome}/eat_sources/{args.target}.yaml", "r") as manifest:
      exit(1)
   try:
     packageRequirements = convertedManifest['depends']
-  except KeyboardInterrupt:
+  except KeyError:
     packageRequirements = []
   for i in packageRequirements:
      if not posix_tools.path.isdir(f"{UserHome}/eat_app_{i}"):
         shutil.rmtree(f"{UserHome}/eat_sources")
         print(f"{Fore.RED}Error:{Style.RESET_ALL} This package requires other packages in order to function. Please install them and try again.\nThe first package detected was: {i}")
         exit(1)
-  packageSuggestions = convertedManifest['should_install']
+  try:
+    packageSuggestions = convertedManifest['should_install']
+  except KeyError:
+    packageSuggestions = []
   for i in packageSuggestions:
         if not posix_tools.path.isdir(f"{UserHome}/eat_app_{i}"):
             print(f"{Fore.YELLOW}Warning:{Style.RESET_ALL} The following unavaliable package is recommended for {args.target}: {i}")
