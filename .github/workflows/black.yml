@@ -37,7 +37,6 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Push
         run: |
-          git pull --rebase
           git add .
           git commit -m "Black format"
           git push
