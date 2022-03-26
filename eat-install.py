@@ -14,8 +14,6 @@ parser = argparse.ArgumentParser(prog="Eat Utilities", usage="eatinst target [op
 
 parser.add_argument('target', type=str,
                     help='package to install')
-parser.add_argument('-d', action="store_true",
-                    help='download only, don\'t install')
 args = parser.parse_args()
 
 if not os.path.isdir(f"{UserHome}/eat_sources"):
@@ -61,9 +59,6 @@ with open(f"{UserHome}/eat_sources/{args.target}.yaml", "r") as manifest:
   print("Moving to user directory.")
   with open(f"{UserHome}/eat_pack_{args.target}.zip", "w") as file:
     f.write(text.decode("utf-8")
-  if args.d:
-    print(f"Downloaded {args.target}!")
-  else:
     print("Extracting to app directory.")
     if url.endswith(".zip"): # Zipped
       with zipfile.ZipFile(f"{UserHome}/eat_pack_{args.target}.zip", 'r') as zip_ref:
