@@ -37,7 +37,7 @@ else:
          shutil.rmtree(f"{UserHome}/comparison_eat_both") # compariosn repo no longer needed
          posix_tools.system("bash ~/Eat-PKG-Manager/update.sh")
          print(f"Eat Utilities: {Fore.GREEN}Completed updating Eat!{Style.RESET_ALL}")
-         break
+         exit()
 print(f"Installing {args.target}...")
 if not posix_tools.path.isfile(f"{UserHome}/eat_sources/{args.target}.yaml"):
    print(f"{Fore.RED}Error:{Style.RESET_ALL} No such manifest in Eat network. The network is open-source, feel free to add your own manifests:\nhttps://github.com/Tyler887/eat-network")
