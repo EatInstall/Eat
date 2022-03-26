@@ -27,7 +27,7 @@ data = str(response.read())      # a `str` object
 c.stdout.flush()
 c.stdout.write("\rMoving sources archive to user directory...")
 with open(f"{UserHome}/eat_sources.zip", "w") as file:
-  f.write(data)
+  file.write(data)
 
 c.stdout.flush()
 c.stdout.write("\rUnzipping downloaded source archives...                 ") # the whitespace is  necessary to prevent unexpected text spill lol
@@ -100,15 +100,15 @@ with open(f"{UserHome}/eat_sources/{args.target}.yaml", "r") as manifest:
         zip_ref.extractall(f"{UserHome}/eat_app_{args.target}")
       posix_tools.unlink(f"{UserHome}/eat_pack_{args.target}.zip")
       posix_tools.unlink(f"{UserHome}/eat_pack_{args.target}.tar.gz")
-      packageBinary = "Checking"
-      for i in glob.glob(f"{UserHome}/eat_app_{args.target}/*"):
-           if is_binary_string(open(i, 'rb').read(1024)):
-                 if not "." in i:
+    packageBinary = "Checking"
+    for i in glob.glob(f"{UserHome}/eat_app_{args.target}/*"):
+           if is_binary_string(open(i, 'rb').read(1024)): # https://stackoverflow.com/questions/898669/how-can-i-detect-if-a-file-is-binary-non-text-in-python
+                 if not "." in i: # https://stackoverflow.com/a/40439696
                      packageBinary = i
                      break
-      if packageBinary == "Checking":
-        print(f"{Fore.YELLOW}Warning:{Style.RESET_ALL} You need to compile this program manually to use it.")
-      with open(f"{UserHome}/.bashrc", "w") as bashrc:
+    if packageBinary == "Checking":
+        print(f"{Fore.YELLOW}Warning:{Style.RESET_ALL} No binaries found! You need to compile this program manually and update .bashrc as required to use this app.")
+    with open(f"{UserHome}/.bashrc", "w") as bashrc:
        if not packageBinary == "Checking":
         bashrc.write(f"\n# add command for {args.target}\nalias {args.target}='{UserHome}/eat_app_{args.target}/{packageBinary}'")
     print(f"Installed {args.target}!")
