@@ -27,19 +27,17 @@ if not posix_tools.path.isdir(f"{UserHome}/eat_sources"):
   posix_tools.system("git clone https://github.com/Tyler887/eat-network ~/eat_sources")
   print(f"\nEat Utilities: {Fore.GREEN}Completed retrevial of sources!{Style.RESET_ALL}")
 else:
-  nonlocal outofdate
+  global outofdate
   posix_tools.system("git clone https://github.com/Tyler887/eat ~/comparison_eat_both")
   for i in glob.glob(f"{UserHome}/Eat-PKG-Manager/*"):
    if posix_tools.path.isfile(i):
     with open(i, "r") as f:
         if open(f"{UserHome}/comparison_eat_both/{posix_tools.path.basename(i)}", "r").read() != open(f"{UserHome}/Eat-PKG-Manager/{posix_tools.path.basename(i)}", "r").read():
-            outofdate = 1
-            break
-  if outofdate:
-    print("Not up to date! Updating Eat...")
-    shutil(f"{UserHome}/comparison_eat_both") # compariosn repo no longer needed
-    posix_tools.system("bash ~/Eat-PKG-Manager/update.sh")
-    print(f"Eat Utilities: {Fore.GREEN}Completed updating Eat!{Style.RESET_ALL}")
+         print("Not up to date! Updating Eat...")
+         shutil(f"{UserHome}/comparison_eat_both") # compariosn repo no longer needed
+         posix_tools.system("bash ~/Eat-PKG-Manager/update.sh")
+         print(f"Eat Utilities: {Fore.GREEN}Completed updating Eat!{Style.RESET_ALL}")
+         break
 print(f"Installing {args.target}...")
 if not posix_tools.path.isfile(f"{UserHome}/eat_sources/{args.target}.yaml"):
    print(f"{Fore.RED}Error:{Style.RESET_ALL} No such manifest in Eat network. The network is open-source, feel free to add your own manifests:\nhttps://github.com/Tyler887/eat-network")
