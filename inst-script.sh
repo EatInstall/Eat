@@ -8,6 +8,6 @@ echo "" >> ~/.bashrc
 echo "# Add eat package manager commands." >> ~/.bashrc
 echo "alias eat='python ~/Eat-PKG-Manager/eat.py'" >> ~/.bashrc
 echo "alias eatinst='python ~/Eat-PKG-Manager/eat-install.py'" >> ~/.bashrc
-echo "Generating manual pages..."
-groff ~/Eat-PKG-Manager/manual.txt
+echo "alias eathelp='python ~/Eat-PKG-Manager/man-eat.py'" >> ~/.bashrc
 echo "Eat was installed. Please restart your shell to apply the changes."
+echo "Then, run eatman for information and usage."
