@@ -32,17 +32,26 @@ with open(f"{UserHome}/eat_sources/{args.target}.yaml", "r") as manifest:
   global packageRequirements
   global packageBinary
   convertedManifest = yaml.full_load(manifest.read()) # Convert YAML manifest to Python dictionary
-  packageUri = convertedManifest['uri']
+  try:
+    packageUri = convertedManifest['uri']
+  expect KeyError:
+    print(f"{Fore.RED}Error:{Style.RESET_ALL} You must set a URI for the package. Set 'uri' in the Manifest.")
   if not packageUri.endswith(".zip") and not packageUri.endswith(".tar.gz"):
       print(f"{Fore.RED}Error:{Style.RESET_ALL} Only zip and gzip-tarred packages are compatible with eat at the moment.")
       shutil.rmtree(f"{UserHome}/eat_sources")
       exit(1)
-  packageRequiresAdmin = convertedManifest['sudo_necessary']
+  try:
+    packageRequiresAdmin = convertedManifest['sudo_necessary']
+  except KeyError:
+    paxkageRequiresAdmin = False
   if packageRequiresAdmin and posix_tools.geteuid() != 0:
      shutil.rmtree(f"{UserHome}/eat_sources")
      print(f"{Fore.RED}Error:{Style.RESET_ALL} Installing this package requires root access, maybe try with sudo?")
      exit(1)
-  packageRequirements = convertedManifest['depends']
+  try:
+    packageRequirements = convertedManifest['depends']
+  except KeyboardInterrupt:
+    packageRequirements = []
   for i in packageRequirements:
      if not posix_tools.path.isdir(f"{UserHome}/eat_app_{i}"):
         shutil.rmtree(f"{UserHome}/eat_sources")
@@ -58,7 +67,7 @@ with open(f"{UserHome}/eat_sources/{args.target}.yaml", "r") as manifest:
   text = data.decode('utf-8') # a `str`; this step can't be used if data is binary
   print("Moving to user directory.")
   with open(f"{UserHome}/eat_pack_{args.target}.zip", "w") as file:
-    f.write(text.decode("utf-8"))
+    f.write(text)
     print("Extracting to app directory.")
     if url.endswith(".zip"): # Zipped
       with zipfile.ZipFile(f"{UserHome}/eat_pack_{args.target}.zip", 'r') as zip_ref:
@@ -78,13 +87,13 @@ with open(f"{UserHome}/eat_sources/{args.target}.yaml", "r") as manifest:
         zip_ref.extractall(f"{UserHome}/eat_app_{args.target}")
       posix_tools.unlink(f"{UserHome}/eat_pack_{args.target}.zip")
       posix_tools.unlink(f"{UserHome}/eat_pack_{args.target}.tar.gz")
-    packageBinary = "Checking"
+    packageBinary = "n/a"
     for i in glob.glob(f"{UserHome}/eat_app_{args.target}/*"):
            if is_binary_string(open(i, 'rb').read(1024)): # https://stackoverflow.com/questions/898669/how-can-i-detect-if-a-file-is-binary-non-text-in-python
                  if not "." in i: # https://stackoverflow.com/a/40439696
                      packageBinary = i
                      break
-    if packageBinary == "Checking":
+    if packageBinary == "n/a":
         print(f"{Fore.YELLOW}Warning:{Style.RESET_ALL} No binaries found! You need to compile this program manually and update .bashrc as required to use this app.")
     with open(f"{UserHome}/.bashrc", "w") as bashrc:
        if not packageBinary == "Checking":
