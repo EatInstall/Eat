@@ -8,7 +8,7 @@ SYNOPSIS
 DESCRIPTION
         eat is a package manager that installs programs without touching the actual Linux system. It downloads
         and installs programs from YAML manifests. It extracts the YAML manifest and gets out the metadata
-        of the applicationn, and adds it to your PATH.
+        of the application, and adds it to your PATH.
 
 ARGUMENTS
    eatinst
