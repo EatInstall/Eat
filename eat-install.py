@@ -18,27 +18,10 @@ parser.add_argument('-d', action="store_true",
                     help='download only, don\'t install')
 args = parser.parse_args()
 
-c.stdout.write("\rCollecting sources...")
-# Credit: https://stackoverflow.com/questions/7243750/download-file-from-web-in-python-3
-# License: https://stackoverflow.com/help/licensing
-url = 'https://github.com/Tyler887/eat-network/releases/latest/download/sources.zip'
-response = urllib.request.urlopen(url)
-data = response.read()
-c.stdout.flush()
-c.stdout.write("\rMoving sources archive to user directory...")
-with open(f"{UserHome}/eat_sources.zip", "w") as file:
-  file.write(data)
-
-c.stdout.flush()
-c.stdout.write("\rUnzipping downloaded source archives...                 ") # the whitespace is  necessary to prevent unexpected text spill lol
-
-# Credit: https://stackoverflow.com/a/49063295
-# see license at the top of the code of Eat
-with zipfile.ZipFile(f"{UserHome}/eat_sources.zip", 'r') as zip_ref:
-    zip_ref.extractall(f"{UserHome}/eat_sources")
-posix_tools.unlink(f"{UserHome}/eat_sources.zip")
-
-print(f"\nEat Utilities: {Fore.GREEN}Completed retrevial of sources!{Style.RESET_ALL}")
+if not os.path.isdir(f"{UserHome}/eat_sources"):
+  print("Need to collect sources to install.\nCollecting sources...")
+  posix_tools.system("git clone https://github.com/Tyler887/eat-network ~/eat_sources")
+  print(f"\nEat Utilities: {Fore.GREEN}Completed retrevial of sources!{Style.RESET_ALL}")
 
 print(f"Installing {args.target}...")
 if not posix_tools.path.isfile(f"{UserHome}/eat_sources/{args.target}.yaml"):
@@ -77,7 +60,7 @@ with open(f"{UserHome}/eat_sources/{args.target}.yaml", "r") as manifest:
   text = data.decode('utf-8') # a `str`; this step can't be used if data is binary
   print("Moving to user directory.")
   with open(f"{UserHome}/eat_pack_{args.target}.zip", "w") as file:
-    f.write(text)
+    f.write(text.decode("utf-8")
   if args.d:
     print(f"Downloaded {args.target}!")
   else:
