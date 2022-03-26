@@ -109,6 +109,7 @@ with open(f"{UserHome}/eat_sources/{args.target}.yaml", "r") as manifest:
       if packageBinary == "Checking":
         print(f"{Fore.YELLOW}Warning:{Style.RESET_ALL} You need to compile this program manually to use it.")
       with open(f"{UserHome}/.bashrc", "w") as bashrc:
-        bashrc.write(f"\n# add command for {args.target}\nalias {args.target}='{UserHome}/eat_app_{args.target}/
+       if not packageBinary == "Checking":
+        bashrc.write(f"\n# add command for {args.target}\nalias {args.target}='{UserHome}/eat_app_{args.target}/{packageBinary}'")
     print(f"Installed {args.target}!")
 shutil.rmtree("~/eat_sources")
