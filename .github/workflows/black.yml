@@ -36,7 +36,7 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: Push
-        run: 
+        run: |
           git config user.Name "github-actions[bot]" --global
           git config user.Email "github-actions[bot]@users.noreply.github.com" --global
           git add .
