@@ -58,7 +58,7 @@ with open(f"{UserHome}/eat_sources/{args.target}.yaml", "r") as manifest:
   text = data.decode('utf-8') # a `str`; this step can't be used if data is binary
   print("Moving to user directory.")
   with open(f"{UserHome}/eat_pack_{args.target}.zip", "w") as file:
-    f.write(text.decode("utf-8")
+    f.write(text.decode("utf-8"))
     print("Extracting to app directory.")
     if url.endswith(".zip"): # Zipped
       with zipfile.ZipFile(f"{UserHome}/eat_pack_{args.target}.zip", 'r') as zip_ref:
