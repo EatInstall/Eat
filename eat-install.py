@@ -56,7 +56,6 @@ if not posix_tools.path.isfile(f"{UserHome}/eat_sources/{args.target}.yaml"):
     )
     exit(1)
 with open(f"{UserHome}/eat_sources/{args.target}.yaml", "r") as manifest:
-    global text
     global packageUri
     global packageRequiresAdmin
     global packageSuggestions
@@ -65,6 +64,7 @@ with open(f"{UserHome}/eat_sources/{args.target}.yaml", "r") as manifest:
     convertedManifest = yaml.full_load(
         manifest.read()
     )  # Convert YAML manifest to Python dictionary
+    print("Converted manifest:", convertedManifest)
     try:
         packageUri = convertedManifest["uri"]
     except KeyError:
@@ -111,14 +111,15 @@ with open(f"{UserHome}/eat_sources/{args.target}.yaml", "r") as manifest:
     url = packageUri
     response = urllib.request.urlopen(url)
     data = response.read()  # a `bytes` object
+    global text
     try:
         text = data.decode(
-            "apple_roman"
+            "utf-8"
         )  # a `str`; this step can't be used if data is binary
     except Exception as e:
         print(f"{Fore.MAGENTA}[Python]{Style.RESET_ALL} {e}")
     print("Moving to user directory.")
-    with open(f"{UserHome}/eat_pack_{args.target}.zip", "w") as file:
+    with open(f"{UserHome}/eat_pack_{args.target}.zip", "wb") as file:
         f.write(text)
         print("Extracting to app directory.")
         if url.endswith(".zip"):  # Zipped
