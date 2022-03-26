@@ -8,6 +8,12 @@ import zipfile, tarfile
 import yaml # PyYAML
 import shutil
 import glob
+import pkgutil, encodings
+def all_encodings():
+    modnames = set([modname for importer, modname, ispkg in pkgutil.walk_packages(
+        path=[os.path.dirname(encodings.__file__)], prefix='')])
+    aliases = set(encodings.aliases.aliases.values())
+    return modnames.union(aliases)
 UserHome = posix_tools.path.expanduser("~")
 
 parser = argparse.ArgumentParser(prog="Eat Utilities", usage="eatinst target [options]")
@@ -71,7 +77,12 @@ with open(f"{UserHome}/eat_sources/{args.target}.yaml", "r") as manifest:
   url = packageUri
   response = urllib.request.urlopen(url)
   data = response.read()      # a `bytes` object
-  text = data.decode('utf-8') # a `str`; this step can't be used if data is binary
+  try:
+    text = data.decode('utf-8') # a `str`; this step can't be used if data is binary
+  except Exception:
+    continue
+  if text == "ñ":
+    print(f"{Fore.MAGENTA}[Python]{Style.RESET_ALL} Decoding [t} with {enc} is {m}!")
   print("Moving to user directory.")
   with open(f"{UserHome}/eat_pack_{args.target}.zip", "w") as file:
     f.write(text)
