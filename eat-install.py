@@ -1,16 +1,14 @@
 # license: GPL-3.0-or-later (with some CC-licensed code snippets, follow links for more info)
-def import_modules():
-    import os as posix_tools
-    import argparse
-    import sys as c
-    import colorama
-    import urllib
-    import zipfile, tarfile
-    import yaml # PyYAML
-    import shutil
-import_modules()
+import os as posix_tools
+import argparse
+import sys as c
+import colorama
+import urllib.request
+import zipfile, tarfile
+import yaml # PyYAML
+import shutil
 
-parser = argparse.ArgumentParser(prog="Eat Utilities", usage="eatinst target [options]", elipog="This program may be freely distributed under the terms of GPLv3 or any later version.")
+parser = argparse.ArgumentParser(prog="Eat Utilities", usage="eatinst target [options]")
 
 parser.add_argument('target', type=str,
                     help='package to install')
