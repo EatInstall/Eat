@@ -2,7 +2,7 @@
 import os as posix_tools
 import argparse
 import sys as c
-import colorama
+from colorama import *
 import urllib.request
 import zipfile, tarfile
 import yaml # PyYAML
