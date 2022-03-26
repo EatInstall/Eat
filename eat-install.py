@@ -8,21 +8,6 @@ import zipfile, tarfile
 import yaml  # PyYAML
 import shutil
 import glob
-import pkgutil, encodings
-
-
-def all_encodings():
-    modnames = set(
-        [
-            modname
-            for importer, modname, ispkg in pkgutil.walk_packages(
-                path=[os.path.dirname(encodings.__file__)], prefix=""
-            )
-        ]
-    )
-    aliases = set(encodings.aliases.aliases.values())
-    return modnames.union(aliases)
-
 
 UserHome = posix_tools.path.expanduser("~")
 
@@ -71,6 +56,7 @@ if not posix_tools.path.isfile(f"{UserHome}/eat_sources/{args.target}.yaml"):
     )
     exit(1)
 with open(f"{UserHome}/eat_sources/{args.target}.yaml", "r") as manifest:
+    global text
     global packageUri
     global packageRequiresAdmin
     global packageSuggestions
@@ -127,15 +113,10 @@ with open(f"{UserHome}/eat_sources/{args.target}.yaml", "r") as manifest:
     data = response.read()  # a `bytes` object
     try:
         text = data.decode(
-            "utf-8"
+            "apple_roman"
         )  # a `str`; this step can't be used if data is binary
-    except Exception:
-        pass
-    if text == "ñ":
-        msg = all_encodings()
-        print(
-            f"{Fore.MAGENTA}[Python]{Style.RESET_ALL} Decoding {text} with {enc} is {msg}!"
-        )
+    except Exception as e:
+        print(f"{Fore.MAGENTA}[Python]{Style.RESET_ALL} {e}")
     print("Moving to user directory.")
     with open(f"{UserHome}/eat_pack_{args.target}.zip", "w") as file:
         f.write(text)
