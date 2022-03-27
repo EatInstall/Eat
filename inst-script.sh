@@ -11,4 +11,4 @@ echo "alias eat='python ~/Eat-PKG-Manager/eat.py'" >> ~/.bashrc
 echo "alias eatinst='python ~/Eat-PKG-Manager/eat-install.py'" >> ~/.bashrc
 echo "alias eathelp='python ~/Eat-PKG-Manager/man-eat.py'" >> ~/.bashrc
 echo "Eat was installed. Please restart your shell to apply the changes."
-echo "Then, run eatman for information and usage."
+echo "Then, run eathelp for information and usage."
