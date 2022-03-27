@@ -83,7 +83,7 @@ with open(f"{UserHome}/eat_sources/{args.target}.yaml", "r") as manifest:
         packageRequiresAdmin = False
     if packageRequiresAdmin and posix_tools.geteuid() != 0:
         print(
-            f"{Fore.RED}Error:{Style.RESET_ALL} Installing this package requires root access, maybe try running bash with sudo?"
+            f"{Fore.RED}Error:{Style.RESET_ALL} Installing this package requires root access, maybe try running:\n      sudo python3 {UserHome}/Eat-PKG-Manager/eat-install.py {args.target}"
         )
         exit(1)
     try:
