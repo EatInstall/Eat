@@ -1,3 +1,3 @@
 import os
 
-os.system("less ~/Eat-PKG-Manager/eat.1")
+os.system("man ~/Eat-PKG-Manager/eat.1")
