@@ -48,7 +48,7 @@ else:
                         break
     except Exception as e:
         print(f"{Fore.YELLOW}Warning:{Style.RESET_ALL} Update check error: {e}")
-shutil.rmtree(f"{UserHome}/comparison_eat_both")
+    shutil.rmtree(f"{UserHome}/comparison_eat_both")
 print(f"Installing {args.target}...")
 if not posix_tools.path.isfile(f"{UserHome}/eat_sources/{args.target}.yaml"):
     print(
@@ -76,14 +76,12 @@ with open(f"{UserHome}/eat_sources/{args.target}.yaml", "r") as manifest:
         print(
             f"{Fore.RED}Error:{Style.RESET_ALL} Only zip and gzip-tarred packages are compatible with eat at the moment."
         )
-        shutil.rmtree(f"{UserHome}/eat_sources")
         exit(1)
     try:
         packageRequiresAdmin = convertedManifest["sudo_necessary"]
     except KeyError:
         packageRequiresAdmin = False
     if packageRequiresAdmin and posix_tools.geteuid() != 0:
-        shutil.rmtree(f"{UserHome}/eat_sources")
         print(
             f"{Fore.RED}Error:{Style.RESET_ALL} Installing this package requires root access, maybe try with sudo?"
         )
@@ -94,7 +92,6 @@ with open(f"{UserHome}/eat_sources/{args.target}.yaml", "r") as manifest:
         packageRequirements = []
     for i in packageRequirements:
         if not posix_tools.path.isdir(f"{UserHome}/eat_app_{i}"):
-            shutil.rmtree(f"{UserHome}/eat_sources")
             print(
                 f"{Fore.RED}Error:{Style.RESET_ALL} This package requires other packages in order to function. Please install them and try again.\nThe first package detected was: {i}"
             )
@@ -168,4 +165,3 @@ with open(f"{UserHome}/eat_sources/{args.target}.yaml", "r") as manifest:
                     f"\n# add command for {args.target}\nalias {args.target}='{UserHome}/eat_app_{args.target}/{packageBinary}'"
                 )
         print(f"Installed {args.target}!")
-shutil.rmtree("~/eat_sources")
