@@ -117,7 +117,7 @@ with open(f"{UserHome}/eat_sources/{args.target}.yaml", "r") as manifest:
         print(f"{Fore.MAGENTA}[Python]{Style.RESET_ALL} {e}")
     print("Moving to user directory.")
     with open(f"{UserHome}/eat_pack_{args.target}.zip", "wb") as file:
-        f.write(text)
+        file.write(text)
         print("Extracting to app directory.")
         if url.endswith(".zip"):  # Zipped
             with zipfile.ZipFile(
