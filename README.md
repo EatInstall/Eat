@@ -30,6 +30,16 @@ Usally, `eat` only works in BASH shells. If you would like to edit your shell's 
 ```bash
 nano .<shell>rc
 ```
+### Ubuntu recovery mode install
+1. Hold <kbd>Shift</kbd> on boot until the GRUB2 menu appears.
+2. Select `Advanced options for Ubuntu` and choose the second option.
+3. When Ubuntu starts up, select `network` then confirm with "Yes".
+   This is because Git and APT cannot reach the internet without networking mode.
+5. Select `root` after networking mode for Recovery Mode is set up, then enter `root`'s password.
+6. Run `su <your own UNIX user name>` to actually install to your user (else `eat` only works for the `root` user).
+7. Follow the steps above.
+8. Run `reboot`, hold <kbd>Shift</kbd>, select `Advanced options for Ubuntu` -> the second option, select `network` > `Yes` > `root`, enter `root`'s password, run `su <your own UNIX user name>`, and try it out using `eatinst setup-eat`. This will usally initiate the sources, because there's no `setup-eat.yaml` in the manifest network.
+9. `reboot` your system without going into GRUB.
 ## Upgrading
 If your installation is out of date (which Eat normally tells you) or you have out-of-date sources,
 you should upgrade both of them.
