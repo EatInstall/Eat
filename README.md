@@ -30,3 +30,24 @@ Usally, `eat` only works in BASH shells. If you would like to edit your shell's 
 ```bash
 nano .<shell>rc
 ```
+## Upgrading
+If your installation is out of date (which Eat normally tells you) or you have out-of-date sources,
+you should upgrade both of them.
+
+To upgrade Eat and the source manifests, the fastest way is to run `bash ~/Eat-PKG-Manager/update.sh`.
+Using `git pull` also works, but your sources will need to be upgraded manually.
+## New manifests
+A manifest goes into the [network](https://github.com/Tyler887/eat-network), and not in this repo.
+To add more manifests to eat, please contribute there.
+
+The specification of an Eat package is:
+```yaml
+uri: # URI for package archive (.zip or .tar.gz). Eat will not install packages without this.
+depends:
+   - # Array of dependencies. Eat will fail installation if one of these are not installed. Empty by default
+should_install:
+   - # Array of suggested packages (e.g. "soft dependencies"). Empty by default
+sudo_necessary: # Whether the app touches the system or not. "true" or "false" accepted only. Default is "false"
+```
+
+A manifest must be named `<manifest name>.yaml`, not something like `<manifest name>.json` or `<manifest name>.yml`.
