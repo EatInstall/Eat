@@ -33,7 +33,7 @@ nano .<shell>rc
 ### Ubuntu recovery mode install
 1. Hold <kbd>Shift</kbd> on boot until the GRUB2 menu appears.
 2. Select `Advanced options for Ubuntu` and choose the second option.
-3. When Ubuntu starts up, select `network` then confirm with "Yes".
+3. When Ubuntu starts up recovery mode, select `network` then confirm with "Yes".
    This is because Git and APT cannot reach the internet without networking mode.
 5. Select `root` after networking mode for Recovery Mode is set up, then enter `root`'s password.
 6. Run `su <your own UNIX user name>` to actually install to your user (else `eat` only works for the `root` user).
