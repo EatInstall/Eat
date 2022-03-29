@@ -1,5 +1,8 @@
 # license: GPLv3+: GPL version 3 or later
 sudo echo -n ""
+if [ -d "~/Eat-PKG-Manager" ]; then
+   echo "You already have eat installed. Did you mean to run 'eathelp' instead?"
+fi
 echo "Installing dependencies..."
 sudo apt-get install python3 python-is-python3 python3-requests python3-colorama python3-pip python3-yaml git -y >> /dev/null # apt does not have a stable CLI interface. Use with caution in scripts.
 echo "Downloading eat..."
