@@ -8,6 +8,10 @@ cd eat
 bash ./inst-script.sh
 # Then, restart your shell and run 'eathelp' for the manpage
 ```
+If `git` does not seem to be a command (which you can look for by running `which git`), you can run:
+```bash
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/Tyler887/eat/main/inst-script.sh -#)"
+```
 You have not installed `eat` if you get something like this:
 ```
 Command 'eat' not found, did you mean:
