@@ -5,7 +5,7 @@ import sys as c
 from colorama import *
 import urllib.request
 import zipfile, tarfile
-import yaml  # PyYAML
+import yaml  # PyYAML module, used for parsing YAML manifests
 import shutil
 import glob
 
