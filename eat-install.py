@@ -52,7 +52,7 @@ else:
                                 and open(
                                     f"{UserHome}/Eat-PKG-Manager/{posix_tools.path.basename(i)}",
                                     "r",
-                                ).read
+                                ).read()
                                 != open(
                                     f"{UserHome}/comparison_eat_both/{posix_tools.path.basename(i)}",
                                     "r",
