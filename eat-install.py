@@ -52,7 +52,7 @@ else:
 print(f"Installing {args.target}...")
 if not posix_tools.path.isfile(f"{UserHome}/eat_sources/{args.target}.yaml"):
     print(
-        f"{Fore.RED}Error [EAT_ERROR_NO_MANIFEST error code 0x80]:{Style.RESET_ALL} Could not find the program \"{args.target}\". This is not my fault, it's the network's\nfault. The network is open-source, feel free to add your own manifests:\n     > https://github.com/Tyler887/eat-network/fork\nor see a list of avaliable packages:\n     > https://github.com/Tyler887/eat-network/tree/main\nHappy packaging! :)"
+        f"{Fore.RED}Error [EAT_ERROR_NO_MANIFEST error code 0x80]:{Style.RESET_ALL} Could not find the program \"{args.target}\". This is not my fault, it's the network's\nfault. The network is open-source, feel free to add your own manifests:\n     > https://github.com/Tyler887/eat-network/fork\nor see a list of avaliable packages:\n     > https://github.com/Tyler887/eat-network/tree/main\nHappy packaging! :)\n{Fore.LIGHTBLACK_EX}Note: You might have outdated sources, try upgrading them by running:\nbash ~/Eat-PKG-Manager/update.sh"
     )
     exit(1)
 with open(f"{UserHome}/eat_sources/{args.target}.yaml", "r") as manifest:
@@ -95,6 +95,9 @@ with open(f"{UserHome}/eat_sources/{args.target}.yaml", "r") as manifest:
             print(
                 f"{Fore.RED}Error [EAT_PROGRAM_REQURIRES_{i.upper()} error code 8x42]:{Style.RESET_ALL} This package requires other packages in order to function. Please install them and try again.\nThe first package detected was: {i}"
             )
+            print("\nYou need the following packages to continue:")
+            for i in packageRequirements:
+                print(f" • {i}")
             exit(1)
     try:
         packageSuggestions = convertedManifest["should_install"]
