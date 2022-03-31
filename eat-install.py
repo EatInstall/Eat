@@ -47,8 +47,8 @@ else:
                         )
                         print("Outdated files in root of eat:")
                         for i in glob.glob(f"{UserHome}/Eat-PKG-Manager/*"):
-                          if os.path.isfile(i):
-                            print(f" • {os.path.basename(i)}")
+                            if os.path.isfile(i):
+                                print(f" • {os.path.basename(i)}")
                         break
     except Exception as e:
         print(f"{Fore.YELLOW}Warning:{Style.RESET_ALL} Update check error: {e}")
