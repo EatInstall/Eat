@@ -28,6 +28,7 @@ else:
         posix_tools.system(
             f"git clone https://github.com/Tyler887/eat {UserHome}/comparison_eat_both --depth 1"
         )
+        global scanned
         for i in glob.glob(f"{UserHome}/Eat-PKG-Manager/*"):
             scanned = scanned + 1
             if scanned == 1:
