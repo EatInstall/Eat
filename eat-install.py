@@ -29,6 +29,11 @@ else:
             f"git clone https://github.com/Tyler887/eat {UserHome}/comparison_eat_both --depth 1"
         )
         for i in glob.glob(f"{UserHome}/Eat-PKG-Manager/*"):
+            scanned = scanned + 1
+            if scanned == 1:
+              c.stdout.write("\rScanned 1 file.")
+            else:
+              c.stdout.write(f"\rScanned {str(scanned)} files.")
             if posix_tools.path.isfile(i):
                 with open(i, "r") as f:
                     if (
@@ -41,8 +46,9 @@ else:
                             "r",
                         ).read()
                     ):
-                        print(
-                            f"{Fore.YELLOW}Warning:{Style.RESET_ALL} Not up to date. Upgrade to the latest version now."
+                        c.stdout.flush
+                        c.stdout.write(
+                            f"\r{Fore.YELLOW}Warning:{Style.RESET_ALL} Not up to date. Upgrade to the latest version now.\n"
                         )
                         print("Outdated files in root of eat:")
                         for i in glob.glob(f"{UserHome}/Eat-PKG-Manager/*"):
@@ -58,7 +64,10 @@ else:
                                 ).read()
                             ):
                                 print(f" • {posix_tools.path.basename(i)}")
+                        c.stdout.flush()
                         break
+                    else:
+                        c.stdout.flush()
     except Exception as e:
         print(f"{Fore.YELLOW}Warning:{Style.RESET_ALL} Update check error: {e}")
     shutil.rmtree(f"{UserHome}/comparison_eat_both")
