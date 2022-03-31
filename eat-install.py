@@ -52,7 +52,7 @@ else:
 print(f"Installing {args.target}...")
 if not posix_tools.path.isfile(f"{UserHome}/eat_sources/{args.target}.yaml"):
     print(
-        f"{Fore.RED}Error:{Style.RESET_ALL} No such manifest in Eat network. The network is open-source, feel free to add your own manifests:\nhttps://github.com/Tyler887/eat-network"
+        f"{Fore.RED}Error [EAT_ERROR_NO_MANIFEST error code 0x80]:{Style.RESET_ALL} Could not find the program \"{args.target}\". This is not my fault, it's the network's\nfault. The network is open-source, feel free to add your own manifests:\n     > https://github.com/Tyler887/eat-network/fork\nor see a list of avaliable packages:\n     > https://github.com/Tyler887/eat-network/tree/main\nHappy packaging! :)"
     )
     exit(1)
 with open(f"{UserHome}/eat_sources/{args.target}.yaml", "r") as manifest:
@@ -83,7 +83,7 @@ with open(f"{UserHome}/eat_sources/{args.target}.yaml", "r") as manifest:
         packageRequiresAdmin = False
     if packageRequiresAdmin and posix_tools.geteuid() != 0:
         print(
-            f"{Fore.RED}Error:{Style.RESET_ALL} Installing this package requires root access, maybe try running:\n      sudo python3 {UserHome}/Eat-PKG-Manager/eat-install.py {args.target}"
+            f"{Fore.RED}Error [EAT_PROGRAM_TOUCHES_SYSTEM error code 3x76]:{Style.RESET_ALL} Installing this package requires root access, maybe try running:\n      sudo python3 {UserHome}/Eat-PKG-Manager/eat-install.py {args.target}"
         )
         exit(1)
     try:
@@ -93,7 +93,7 @@ with open(f"{UserHome}/eat_sources/{args.target}.yaml", "r") as manifest:
     for i in packageRequirements:
         if not posix_tools.path.isdir(f"{UserHome}/eat_app_{i}"):
             print(
-                f"{Fore.RED}Error:{Style.RESET_ALL} This package requires other packages in order to function. Please install them and try again.\nThe first package detected was: {i}"
+                f"{Fore.RED}Error [EAT_PROGRAM_REQURIRES_{args.target.upper()} error code 8x42]:{Style.RESET_ALL} This package requires other packages in order to function. Please install them and try again.\nThe first package detected was: {i}"
             )
             exit(1)
     try:
@@ -164,4 +164,4 @@ with open(f"{UserHome}/eat_sources/{args.target}.yaml", "r") as manifest:
                 bashrc.write(
                     f"\n# add command for {args.target}\nalias {args.target}='{UserHome}/eat_app_{args.target}/{packageBinary}'"
                 )
-        print(f"Installed {args.target}!")
+        print(f"{Fore.GREEN}Installed {args.target}{Style.RESET_AL}!")
