@@ -93,7 +93,7 @@ with open(f"{UserHome}/eat_sources/{args.target}.yaml", "r") as manifest:
     for i in packageRequirements:
         if not posix_tools.path.isdir(f"{UserHome}/eat_app_{i}"):
             print(
-                f"{Fore.RED}Error [EAT_PROGRAM_REQURIRES_{args.target.upper()} error code 8x42]:{Style.RESET_ALL} This package requires other packages in order to function. Please install them and try again.\nThe first package detected was: {i}"
+                f"{Fore.RED}Error [EAT_PROGRAM_REQURIRES_{i.upper()} error code 8x42]:{Style.RESET_ALL} This package requires other packages in order to function. Please install them and try again.\nThe first package detected was: {i}"
             )
             exit(1)
     try:
