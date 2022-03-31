@@ -47,7 +47,17 @@ else:
                         )
                         print("Outdated files in root of eat:")
                         for i in glob.glob(f"{UserHome}/Eat-PKG-Manager/*"):
-                            if posix_tools.path.isfile(i) and open(f"{UserHome}/Eat-PKG-Manager/{posix_tools.path.basename(i)}", "r").read != open(f"{UserHome}/comparison_eat_both/{posix_tools.path.basename(i)}", "r").read():
+                            if (
+                                posix_tools.path.isfile(i)
+                                and open(
+                                    f"{UserHome}/Eat-PKG-Manager/{posix_tools.path.basename(i)}",
+                                    "r",
+                                ).read
+                                != open(
+                                    f"{UserHome}/comparison_eat_both/{posix_tools.path.basename(i)}",
+                                    "r",
+                                ).read()
+                            ):
                                 print(f" • {posix_tools.path.basename(i)}")
                         break
     except Exception as e:
