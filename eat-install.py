@@ -42,11 +42,13 @@ else:
                             "r",
                         ).read()
                     ):
+                        global ofd
                         print(
                             f"{Fore.YELLOW}Warning:{Style.RESET_ALL} Not up to date. Upgrade to the latest version now."
                         )
+                        ofd = 1
                         break
-                    else:
+                    if not ofd:
                         print(f"{Fore.GREEN}♫ We are up to date!{Style.RESET_ALL}")
     except Exception as e:
         print(f"{Fore.YELLOW}Warning:{Style.RESET_ALL} Update check error: {e}")
