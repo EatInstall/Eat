@@ -1,4 +1,3 @@
-# license: GPL-3.0-or-later
 import os as posix_tools
 import argparse
 import sys as c
