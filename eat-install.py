@@ -46,6 +46,8 @@ else:
                             f"{Fore.YELLOW}Warning:{Style.RESET_ALL} Not up to date. Upgrade to the latest version now."
                         )
                         break
+                    else:
+                        print(f"{Fore.GREEN}♫ We are up to date!{Style.RESET_ALL}")
     except Exception as e:
         print(f"{Fore.YELLOW}Warning:{Style.RESET_ALL} Update check error: {e}")
     shutil.rmtree(f"{UserHome}/comparison_eat_both")
