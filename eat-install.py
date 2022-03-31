@@ -31,9 +31,9 @@ else:
         for i in glob.glob(f"{UserHome}/Eat-PKG-Manager/*"):
             scanned = scanned + 1
             if scanned == 1:
-              c.stdout.write("\rScanned 1 file.")
+                c.stdout.write("\rScanned 1 file.")
             else:
-              c.stdout.write(f"\rScanned {str(scanned)} files.")
+                c.stdout.write(f"\rScanned {str(scanned)} files.")
             if posix_tools.path.isfile(i):
                 with open(i, "r") as f:
                     if (
