@@ -1,7 +1,11 @@
 # `eat`
 [![Status](https://img.shields.io/badge/status-alpha-red)](https://github.com/Tyler887/eat/commits/main) [![GitHub download](https://img.shields.io/github/downloads/Tyler887/eat/total)](https://github.com/Tyler887/eat/releases) [![License](https://img.shields.io/github/license/Tyler887/eat)](https://github.com/Tyler887/eat/blob/main/LICENSE)
 
-The package manager for Linux.
+Eat is the package manager for Linux. It:
+* **Does not even require  `sudo`!**
+* Adds the programs to your PATH
+* Does total web scraping to download files
+* Makes sharing Linux programs easier
 ## Install
 Simple (this script was made for BASH):
 ```bash
