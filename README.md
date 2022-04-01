@@ -1,3 +1,7 @@
+# 🛑 Reminder
+`eat` is moving from `Tyler887/eat` to `EatInstall/Eat` for better maintaining of
+the package manager. You may need to [uninstall `eat`](https://github.com/EatInstall/Eat/wiki/Uninstall)
+and do the [installation steps below](#install).
 # `eat`
 [![Status](https://img.shields.io/badge/status-alpha-red)](https://github.com/Tyler887/eat/commits/main) [![GitHub download](https://img.shields.io/github/downloads/Tyler887/eat/total)](https://github.com/Tyler887/eat/releases) [![License](https://img.shields.io/github/license/Tyler887/eat)](https://github.com/Tyler887/eat/blob/main/LICENSE)
 
