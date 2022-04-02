@@ -10,6 +10,7 @@ Eat is the package manager for Linux. It:
 * Adds the programs to your PATH
 * Does total web scraping to download files
 * Makes sharing L\*nux programs easier
+<!--
 ## Install
 Simple (this script was made for BASH):
 ```bash
@@ -42,6 +43,7 @@ you should upgrade both of them.
 
 To upgrade Eat and the source manifests, the fastest way is to run `bash ~/Eat-PKG-Manager/update.sh`.
 Using `git pull` also works, but your sources will need to be upgraded manually.
+-->
 ## New manifests
 A manifest goes into the [network](https://github.com/Tyler887/eat-network), and not in this repo.
 To add more manifests to eat, please contribute there.
