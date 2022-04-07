@@ -97,7 +97,7 @@ else:
         print(f"{Fore.YELLOW}Warning:{Style.RESET_ALL} Update check error: {e}")
     shutil.rmtree(f"{UserHome}/comparison_eat_both")
 print(f"Installing {args.target}...")
-if os.geteuid() != -1:
+if posix_tools.geteuid() != -1:
     if gi:
         print(
             f"{Fore.RED}Error:{Style.RESET_ALL} You must be root to install apps globally."
@@ -137,7 +137,7 @@ with open(f"{UserHome}/eat_sources/{args.target}.yaml", "r") as manifest:
         packageRequiresAdmin = False
     if packageRequiresAdmin and posix_tools.geteuid() != 0:
         print(
-            f"{Fore.RED}Error [EAT_PROGRAM_TOUCHES_SYSTEM error code 3x76]:{Style.RESET_ALL} Installing this package requires root access, maybe try running:\n      sudo python3 {UserHome}/Eat-PKG-Manager/eat-install.py {args.target}"
+            f"{Fore.RED}Error [EAT_PROGRAM_TOUCHES_SYSTEM error code 3x76]:{Style.RESET_ALL} Installing this package requires root access, maybe try running:\n      sudo python3 {UserHome}/Eat-PKG-Manager/eat-install.py {args.target} --system"
         )
         exit(1)
     try:
