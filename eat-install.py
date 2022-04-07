@@ -186,8 +186,8 @@ with open(f"{UserHome}/eat_sources/{args.target}.yaml", "r") as manifest:
                 compression=zipfile.ZIP_DEFLATED,
             )
             for m in tarf:
-                f = tarf.extractfile(m)
-                fl = f.read()
+                tarx = open(tarf.extractfile(m), "w+")
+                fl = tarx.read()
                 fn = m.name
             zipf.writestr(fn, fl)
             tarf.close()
