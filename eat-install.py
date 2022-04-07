@@ -97,7 +97,7 @@ else:
         print(f"{Fore.YELLOW}Warning:{Style.RESET_ALL} Update check error: {e}")
     shutil.rmtree(f"{UserHome}/comparison_eat_both")
 print(f"Installing {args.target}...")
-if posix_tools.geteuid() != -1:
+if posix_tools.geteuid() != 0:
     if gi:
         print(
             f"{Fore.RED}Error:{Style.RESET_ALL} You must be root to install apps globally."
