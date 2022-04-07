@@ -50,7 +50,7 @@ elif c.version_info == 3 and c.version_info.minor < 8:
 if not posix_tools.path.isdir(f"{UserHome}/eat_sources"):
     print("Need to collect sources to install any app. Collecting sources...")
     posix_tools.system(
-        "git clone https://github.com/Eat/Network ~/eat_sources --depth 1 >> /dev/null"
+        "git clone https://github.com/EatInstall/Network ~/eat_sources --depth 1 >> /dev/null"
     )
 else:
     try:
