@@ -214,10 +214,10 @@ with open(f"{UserHome}/eat_sources/{args.target}.yaml", "r") as manifest:
             )
         with open(f"{UserHome}/.bashrc", "w") as bashrc:
             if not packageBinary == "n/a":
-               if gi:
+                if gi:
                     os.system(f"install {packageBinary}")
-               else:
-                  bashrc.write(
-                    f"\n# add command for {args.target}\nalias {args.target}='{UserHome}/eat_app_{args.target}/{packageBinary}'"
-                )
+                else:
+                    bashrc.write(
+                        f"\n# add command for {args.target}\nalias {args.target}='{UserHome}/eat_app_{args.target}/{packageBinary}'"
+                    )
         print(f"{Fore.GREEN}Installed {args.target}{Style.RESET_ALL}!")
