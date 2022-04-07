@@ -1,8 +1,3 @@
-# 🛑 Reminder
-`eat` is moving from `Tyler887/eat` to `EatInstall/Eat` for better maintaining of
-the package manager. You may need to [uninstall `eat`](https://github.com/EatInstall/Eat/wiki/Uninstall)
-and do the [installation steps below](#install). When this reminder disappears, developers should
-sync their changes from here to their local repo (`git pull`).
 # `eat`
 [![Status](https://img.shields.io/badge/status-alpha-red)](https://github.com/Tyler887/eat/commits/main) [![GitHub download](https://img.shields.io/github/downloads/Tyler887/eat/total)](https://github.com/Tyler887/eat/releases) [![License](https://img.shields.io/github/license/Tyler887/eat)](https://github.com/Tyler887/eat/blob/main/LICENSE)
 
@@ -11,7 +6,6 @@ Eat is the package manager for Linux. It:
 * Adds the programs to your PATH
 * Does total web scraping to download files
 * Makes sharing L\*nux programs easier
-<!--
 ## Install
 Simple (this script was made for BASH):
 ```bash
@@ -44,7 +38,6 @@ you should upgrade both of them.
 
 To upgrade Eat and the source manifests, the fastest way is to run `bash ~/Eat-PKG-Manager/update.sh`.
 Using `git pull` also works, but your sources will need to be upgraded manually.
--->
 ## New manifests
 A manifest goes into the [network](https://github.com/Tyler887/eat-network), and not in this repo.
 To add more manifests to eat, please contribute there.
