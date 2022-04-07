@@ -163,11 +163,11 @@ with open(f"{UserHome}/eat_sources/{args.target}.yaml", "r") as manifest:
                 f"{Fore.YELLOW}Warning:{Style.RESET_ALL} The following unavaliable package is recommended for {args.target}: {i}"
             )
     url = packageUri
+    print("Moving to user directory.")
     if url.endswith(".zip"):
         download(url, f"{UserHome}/eat_pack_{args.target}.zip")
     else:
         download(url, f"{UserHome}/eat_pack_{args.target}.tar.gz")
-    print("Moving to user directory.")
     with open(f"{UserHome}/eat_pack_{args.target}.zip", "wb") as file:
         file.write(text)
         print("Extracting to app directory.")
