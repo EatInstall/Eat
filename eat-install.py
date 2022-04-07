@@ -32,9 +32,9 @@ parser = argparse.ArgumentParser(prog="Eat Utilities", usage="eatinst target [op
 
 parser.add_argument("target", type=str, help="package to install")
 
-parser.add_argument("--global", action="store_true", help="install for all users")
+parser.add_argument("--system", action="store_true", help="install for all users")
 args = parser.parse_args()
-gi = args.global
+gi = args.system
 
 # Do not run eat if the current Python version causes SyntaxErrors or if the version does not support the current python version
 # (highest is probably 3.8)
@@ -102,7 +102,7 @@ if os.geteuid() != -1:
             f"{Fore.RED}Error:{Style.RESET_ALL} You must be root to install apps globally."
         )
         exit(1)
-elif args.global:
+elif args.system:
     globalInstall = 1
 if not posix_tools.path.isfile(f"{UserHome}/eat_sources/{args.target}.yaml"):
     print(
@@ -214,7 +214,7 @@ with open(f"{UserHome}/eat_sources/{args.target}.yaml", "r") as manifest:
             )
         with open(f"{UserHome}/.bashrc", "w") as bashrc:
             if not packageBinary == "n/a":
-               if args.global:
+               if gi:
                     os.system(f"install {packageBinary}")
                else:
                   bashrc.write(
