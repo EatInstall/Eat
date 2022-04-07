@@ -1,8 +1,8 @@
+import sys as c
 if c.version_info.major == 1:  # if running python 1, do nothing
     exit()
 import os as posix_tools
 import argparse
-import sys as c
 from colorama import *
 from requests import get
 import zipfile, tarfile
