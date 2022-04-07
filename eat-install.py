@@ -1,4 +1,4 @@
-if c.version_info.major == 1: # if running python 1, do nothing
+if c.version_info.major == 1:  # if running python 1, do nothing
     exit()
 import os as posix_tools
 import argparse
@@ -10,14 +10,21 @@ import yaml  # PyYAML module, used for parsing YAML manifests.
 import shutil
 import glob
 import distro
+
+
 class NotCompatibleWithPython2Error(Exception):
     pass
+
+
 class UnsupportedPython3VersionError(Exception):
     pass
+
+
 def download(url, file_name):
     with open(file_name, "wb") as file:
         response = get(url)
         file.write(response.content)
+
 
 UserHome = posix_tools.path.expanduser("~")
 
@@ -31,9 +38,13 @@ args = parser.parse_args()
 # Do not run eat if the current Python version causes SyntaxErrors or if the version does not support the current python version
 # (highest is probab
 if c.version_info.major == 2:
-    raise NotCompatibleWithPython2Error("eat must be run on python 3+, you are using python 2, so you cannot use many great tools written in python 3. UPGRADE YOUR PYTHON FOR MORE UPDATES.")
+    raise NotCompatibleWithPython2Error(
+        "eat must be run on python 3+, you are using python 2, so you cannot use many great tools written in python 3. UPGRADE YOUR PYTHON FOR MORE UPDATES."
+    )
 elif c.version_info == 3 and c.version_info.minor < 8:
-    raise UnsupportedPython3VersionError("eat must be run on python 3.8 or newer, upgrade your python")
+    raise UnsupportedPython3VersionError(
+        "eat must be run on python 3.8 or newer, upgrade your python"
+    )
 if not posix_tools.path.isdir(f"{UserHome}/eat_sources"):
     print("Need to collect sources to install any app. Collecting sources...")
     posix_tools.system(
@@ -144,9 +155,9 @@ with open(f"{UserHome}/eat_sources/{args.target}.yaml", "r") as manifest:
             )
     url = packageUri
     if url.endswith(".zip"):
-      download(url, f"{UserHome}/eat_pack_{args.target}.zip")
+        download(url, f"{UserHome}/eat_pack_{args.target}.zip")
     else:
-      download(url, f"{UserHome}/eat_pack_{args.target}.tar.gz")
+        download(url, f"{UserHome}/eat_pack_{args.target}.tar.gz")
     print("Moving to user directory.")
     with open(f"{UserHome}/eat_pack_{args.target}.zip", "wb") as file:
         file.write(text)
@@ -184,7 +195,9 @@ with open(f"{UserHome}/eat_sources/{args.target}.yaml", "r") as manifest:
             if is_binary_string(
                 open(i, "rb").read(1024)
             ):  # https://stackoverflow.com/questions/898669/how-can-i-detect-if-a-file-is-binary-non-text-in-python
-                if not "." in os.path.basename(i):  # https://stackoverflow.com/a/40439696
+                if not "." in os.path.basename(
+                    i
+                ):  # https://stackoverflow.com/a/40439696
                     packageBinary = i
                     break
         if packageBinary == "n/a":
