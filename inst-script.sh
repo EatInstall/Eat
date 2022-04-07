@@ -1,6 +1,5 @@
-# license: GPLv3+: GPL version 3 or later
 sudo echo -n ""
-if [ -d "$(echo eval ~)/Eat-PKG-Manager" ]; then
+if [ -d "$(eval ~)/Eat-PKG-Manager" ]; then
    echo "You already have eat installed. Did you mean to run 'eathelp' instead?"
    exit 1
 fi
