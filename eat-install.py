@@ -95,7 +95,8 @@ else:
         print(f"{Fore.YELLOW}Warning:{Style.RESET_ALL} Update check error: {e}")
     shutil.rmtree(f"{UserHome}/comparison_eat_both")
 print(f"Installing {args.target}...")
-if args.global and os.geteuid() != -1:
+if os.geteuid() != -1:
+    if args.global:
         print(
             f"{Fore.RED}Error:{Style.RESET_ALL} You must be root to install apps globally."
         )
