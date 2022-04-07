@@ -169,7 +169,6 @@ with open(f"{UserHome}/eat_sources/{args.target}.yaml", "r") as manifest:
     else:
         download(url, f"{UserHome}/eat_pack_{args.target}.tar.gz")
     with open(f"{UserHome}/eat_pack_{args.target}.zip", "wb") as file:
-        file.write(text)
         print("Extracting to app directory.")
         if url.endswith(".zip"):  # Zipped
             with zipfile.ZipFile(
