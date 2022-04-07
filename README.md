@@ -55,3 +55,6 @@ sudo_necessary: # Whether the app touches the system or not. "true" or "false" a
 ```
 
 A manifest must be named `<manifest name>.yaml`, not something like `<manifest name>.json` or `<manifest name>.yml`.
+## Authors
+Eat was originally written by [Tyler887](https://github.com/Tyler887), but a [mass migration to this organisation](https://github.com/EatInstall/Eat/pull/4)
+was preformed.
