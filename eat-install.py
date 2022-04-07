@@ -36,7 +36,7 @@ parser.add_argument("--global", action="store_true", help="install for all users
 args = parser.parse_args()
 
 # Do not run eat if the current Python version causes SyntaxErrors or if the version does not support the current python version
-# (highest is probab
+# (highest is probably 3.8)
 if c.version_info.major == 2:
     raise NotCompatibleWithPython2Error(
         "eat must be run on python 3+, you are using python 2, so you cannot use many great tools written in python 3. UPGRADE YOUR PYTHON FOR MORE UPDATES."
@@ -95,6 +95,13 @@ else:
         print(f"{Fore.YELLOW}Warning:{Style.RESET_ALL} Update check error: {e}")
     shutil.rmtree(f"{UserHome}/comparison_eat_both")
 print(f"Installing {args.target}...")
+if args.global and os.geteuid() != -1:
+        print(
+            f"{Fore.RED}Error:{Style.RESET_ALL} You must be root to install apps globally."
+        )
+        exit(1)
+elif args.global:
+    globalInstall = 1
 if not posix_tools.path.isfile(f"{UserHome}/eat_sources/{args.target}.yaml"):
     print(
         f"{Fore.RED}Error [EAT_ERROR_NO_MANIFEST error code 0x80]:{Style.RESET_ALL} Could not find the program \"{args.target}\". This is not my fault, it's the network's\nfault. The network is open-source, feel free to add your own manifests:\n     > https://github.com/Tyler887/eat-network/fork\nor see a list of avaliable packages:\n     > https://github.com/Tyler887/eat-network/tree/main\nHappy packaging! :)\n{Fore.LIGHTBLACK_EX}Note: You might have outdated sources, try upgrading them by running:\nbash ~/Eat-PKG-Manager/update.sh"
@@ -205,7 +212,10 @@ with open(f"{UserHome}/eat_sources/{args.target}.yaml", "r") as manifest:
             )
         with open(f"{UserHome}/.bashrc", "w") as bashrc:
             if not packageBinary == "n/a":
-                bashrc.write(
+               if args.global:
+                    os.system(f"install {packageBinary}")
+               else:
+                  bashrc.write(
                     f"\n# add command for {args.target}\nalias {args.target}='{UserHome}/eat_app_{args.target}/{packageBinary}'"
                 )
         print(f"{Fore.GREEN}Installed {args.target}{Style.RESET_ALL}!")
