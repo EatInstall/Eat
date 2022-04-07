@@ -32,8 +32,9 @@ parser = argparse.ArgumentParser(prog="Eat Utilities", usage="eatinst target [op
 
 parser.add_argument("target", type=str, help="package to install")
 
-parser.add_argument("-g", action="store_true", help="install for all users")
+parser.add_argument("--global", action="store_true", help="install for all users")
 args = parser.parse_args()
+gi = args.global
 
 # Do not run eat if the current Python version causes SyntaxErrors or if the version does not support the current python version
 # (highest is probably 3.8)
@@ -96,7 +97,7 @@ else:
     shutil.rmtree(f"{UserHome}/comparison_eat_both")
 print(f"Installing {args.target}...")
 if os.geteuid() != -1:
-    if args.g:
+    if gi:
         print(
             f"{Fore.RED}Error:{Style.RESET_ALL} You must be root to install apps globally."
         )
