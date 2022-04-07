@@ -54,7 +54,7 @@ else:
     try:
         print("Checking for eat updates...")
         posix_tools.system(
-            f"git clone https://github.com/Tyler887/eat {UserHome}/comparison_eat_both --depth 1"
+            f"git clone https://github.com/EatInstall/Eat {UserHome}/comparison_eat_both --depth 1"
         )
         for i in glob.glob(f"{UserHome}/Eat-PKG-Manager/*"):
             if posix_tools.path.isfile(i):
@@ -109,7 +109,6 @@ with open(f"{UserHome}/eat_sources/{args.target}.yaml", "r") as manifest:
     convertedManifest = yaml.full_load(
         manifest.read()
     )  # Convert YAML manifest to Python dictionary
-    print("Converted manifest:", convertedManifest)
     try:
         packageUri = convertedManifest["uri"]
     except KeyError:
