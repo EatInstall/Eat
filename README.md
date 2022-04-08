@@ -8,6 +8,12 @@ Eat is the package manager for Linux. It:
 * Makes sharing L\*nux programs easier
 
 Here's how I would use Eat: `eatinst pwsh`
+
+And fix your code too:
+```patch
+-Fix you're code too
++Fix your code too
+```
 ## Install
 Simple (this script was made for BASH):
 ```bash
