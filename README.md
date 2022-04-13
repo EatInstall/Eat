@@ -32,11 +32,17 @@ Usally, `eat` only works in BASH shells. If you would like to edit your shell's 
 nano .<shell>rc
 ```
 If you are a developer and want to install Eat (through the main branch) in your GitHub Sctions CI, add
-this as the firat steo:
+this as the firat step:
 ```yaml
 - name: Install Eat
-  uses: Eat/GitHub-Setup
+  uses: Eat/GitHub-Setup@v1.1
 ```
+### ⚙️ Eat as a Service (EaaS)
+Running Eat on a container is *simple*:
+```bash
+docker pull ghcr.io/eatinstall/eat:main
+```
+**Note: This method installls from the `dev` branch. It is highly recommended to do a proper install instead.**
 ### Ubuntu recovery mode install
 1. Hold <kbd>Shift</kbd> on boot until the GRUB2 menu appears.
 2. Select `Advanced options for Ubuntu` and choose the second option.
