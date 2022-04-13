@@ -31,8 +31,8 @@ Usally, `eat` only works in BASH shells. If you would like to edit your shell's 
 ```bash
 nano .<shell>rc
 ```
-If you are a developer and want to install Eat (through the main branch) in your GitHub Sctions CI, add
-this as the firat step:
+If you are a developer and want to install Eat (through the main branch) in your GitHub Actions CI, add
+this as the first step:
 ```yaml
 - name: Install Eat
   uses: Eat/GitHub-Setup@v1.1
