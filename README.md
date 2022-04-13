@@ -40,7 +40,7 @@ this as the first step:
 ### ⚙️ Eat as a Service (EaaS) [[more info](https://github.com/EatInstall/Eat/pkgs/container/eat)]
 Running Eat on a container is *simple*:
 ```bash
-docker pull ghcr.io/eatinstall/eat:main
+docker pull ghcr.io/eatinstall/eat:dev
 ```
 **Note: This method installls from the `dev` branch. It is highly recommended to do a proper install instead.**
 ### Ubuntu recovery mode install
