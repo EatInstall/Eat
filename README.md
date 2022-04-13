@@ -37,7 +37,7 @@ this as the first step:
 - name: Install Eat
   uses: Eat/GitHub-Setup@v1.1
 ```
-### ⚙️ Eat as a Service (EaaS)
+### ⚙️ Eat as a Service (EaaS) [[more info](https://github.com/EatInstall/Eat/pkgs/container/eat)]
 Running Eat on a container is *simple*:
 ```bash
 docker pull ghcr.io/eatinstall/eat:main
