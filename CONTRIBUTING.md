@@ -1,10 +1,11 @@
 # Contributing to `eat`
 Looking to contribute to `eat`? **Okay!** As a practice, you should read these guiddelines before contributing.
 ## Guidelines
-`eat` automatically formats itself to comply with PEP-8. Please always format your code:
+`eat` automatically formats itself to comply with PEP-8. Please always format your code (only possible if you
+cloned your fork):
 ```bash
 python -m pip install black
-python -m black
+python black-linting.py
 ```
 If you do not do this, it will be done instantly on merge by the CI.
 
