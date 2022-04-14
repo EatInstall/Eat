@@ -9,7 +9,7 @@ repository:
   description: The package manager for Linux
 
   # A URL with more information about the repository
-  homepage: https://example.github.io/
+  homepage: https://eatinstall.github.io/
 
   # A comma-separated list of topics to set on the repository
   topics: eat, package-manager, ci, python, bash, requests, yaml, linux, unix, ubuntu
