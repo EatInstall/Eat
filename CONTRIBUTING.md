@@ -6,6 +6,8 @@ cloned your fork):
 ```bash
 python -m pip install black
 python black-linting.py
+git commit -m "Black format" -a
+git push
 ```
 If you do not do this, it will be done instantly on merge by the CI.
 
