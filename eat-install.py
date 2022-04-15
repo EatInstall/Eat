@@ -1,7 +1,7 @@
-import sys as c
-
-if c.version_info.major == 1:  # if running python 1, do nothing
+import sys
+if sys.version_info.major == 1:  # if running python 1, do nothing
     exit()
+import sys as c
 import os as posix_tools
 import argparse
 from colorama import *
@@ -34,6 +34,8 @@ parser = argparse.ArgumentParser(prog="Eat Utilities", usage="eatinst target [op
 parser.add_argument("target", type=str, help="package to install")
 
 parser.add_argument("--system", action="store_true", help="install for all users")
+
+parser.add_argument("--config", type=str, default=f"{UserHome}/eatconfig.yaml", help="configuration file to use (in YAML format)")
 args = parser.parse_args()
 gi = args.system
 
@@ -41,7 +43,7 @@ gi = args.system
 # (highest is probably 3.8)
 if c.version_info.major == 2:
     raise NotCompatibleWithPython2Error(
-        "eat must be run on python 3+, you are using python 2, so you cannot use many great tools written in python 3. UPGRADE YOUR PYTHON FOR MORE UPDATES."
+        "eat must be run on python 3+, you are using python 2, UPGRADE YOUR PYTHON FOR SECURITY."
     )
 elif c.version_info == 3 and c.version_info.minor < 8:
     raise UnsupportedPython3VersionError(
