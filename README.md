@@ -11,14 +11,8 @@ Eat is the package manager for Linux. It:
 
 Here's how I would use Eat: `eatinst pwsh`
 
-A compressed file is normally downloaded, then a migration of the archive to
-a folder is preformed. Example diff for demonstration:
-```patch
--PowerShell-7.2.2-linux-x64.tar.gz
-+eat-app-pwsh
-```
 ## Install
-Simple (this script was made for BASH):
+Simple <sub>(this script was made for BASH)</sub>:
 ```bash
 git clone htttps://github.com/Tyler887/eat
 cd eat
