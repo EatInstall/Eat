@@ -1,4 +1,5 @@
 import sys
+
 if sys.version_info.major == 1:  # if running python 1, do nothing
     exit()
 import sys as c
@@ -35,7 +36,12 @@ parser.add_argument("target", type=str, help="package to install")
 
 parser.add_argument("--system", action="store_true", help="install for all users")
 
-parser.add_argument("--config", type=str, default=f"{UserHome}/eatconfig.yaml", help="configuration file to use (in YAML format)")
+parser.add_argument(
+    "--config",
+    type=str,
+    default=f"{UserHome}/eatconfig.yaml",
+    help="configuration file to use (in YAML format)",
+)
 args = parser.parse_args()
 gi = args.system
 
