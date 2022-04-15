@@ -44,14 +44,18 @@ parser.add_argument(
 )
 if not os.path.isfile(f"{UserHome}/eatconfig.yaml"):
     with open(f"{UserHome}/eatconfig.yaml", "a") as f:
-        file.write("""# To the extent possible under law, the author(s) have dedicated all copyright and related and
+        file.write(
+            """# To the extent possible under law, the author(s) have dedicated all copyright and related and
 # neighboring rights to this software to the public domain worldwide. This software is distributed
 # without any warranty.
 
 # You should have received a copy of the CC0 Public Domain Dedication
-# along with this software. If not, see <http://creativecommons.org/publicdomain/zero/1.0/>.\n""") # THIS LICENSE DOES NOT APPLY TO EAT
+# along with this software. If not, see <http://creativecommons.org/publicdomain/zero/1.0/>.\n"""
+        )  # THIS LICENSE DOES NOT APPLY TO EAT
         file.write("# This YAML config file contains info on what settings for\n")
-        file.write("# Eat to use. You can update this file if you want to personalize\n")
+        file.write(
+            "# Eat to use. You can update this file if you want to personalize\n"
+        )
         file.write("# your eat experience.\n")
         file.write("\n")
         file.write("# Block closed-source software from being installed.\n")
@@ -76,7 +80,7 @@ if not posix_tools.path.isdir(f"{UserHome}/eat_sources"):
     posix_tools.system(
         "git clone https://github.com/EatInstall/Network ~/eat_sources --depth 1 >> /dev/null"
     )
-elif not config['updates_disabled']:
+elif not config["updates_disabled"]:
     try:
         print("Checking for eat updates...")
         posix_tools.system(
