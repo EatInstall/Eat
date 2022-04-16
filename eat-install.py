@@ -61,7 +61,9 @@ if not posix_tools.path.isfile(f"{UserHome}/eatconfig.yaml"):
         file.write("# Block closed-source software from being installed.\n")
         file.write("disallowed_licenses:\n")
         file.write("   - @CLOSED\n")
-        file.write("# I recommend keeping updates on for security reasons. Uncomment\n# the below if you need silent\n#update checking disabled.\n")
+        file.write(
+            "# I recommend keeping updates on for security reasons. Uncomment\n# the below if you need silent\n#update checking disabled.\n"
+        )
         file.write("#updates_disabled: true\n")
 args = parser.parse_args()
 gi = args.system
