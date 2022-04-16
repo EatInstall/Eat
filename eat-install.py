@@ -43,7 +43,7 @@ parser.add_argument(
     help="configuration file to use (in YAML format)",
 )
 if not posix_tools.path.isfile(f"{UserHome}/eatconfig.yaml"):
-    with open(f"{UserHome}/eatconfig.yaml", "a") as f:
+    with open(f"{UserHome}/eatconfig.yaml", "a") as file:
         file.write(
             """# To the extent possible under law, the author(s) have dedicated all copyright and related and
 # neighboring rights to this software to the public domain worldwide. This software is distributed
