@@ -42,7 +42,7 @@ parser.add_argument(
     default=f"{UserHome}/eatconfig.yaml",
     help="configuration file to use (in YAML format)",
 )
-if not os.path.isfile(f"{UserHome}/eatconfig.yaml"):
+if not posix_tools.path.isfile(f"{UserHome}/eatconfig.yaml"):
     with open(f"{UserHome}/eatconfig.yaml", "a") as f:
         file.write(
             """# To the extent possible under law, the author(s) have dedicated all copyright and related and
