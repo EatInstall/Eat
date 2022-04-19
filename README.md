@@ -6,7 +6,7 @@ Eat is the package manager for Linux. It:
 * **Does not even require  `sudo`!**
 * Adds the programs to your PATH
 * Does total web scraping to download files
-* Makes sharing L\*nux programs easier
+* Makes sharing Linux programs easier
 
 Here's how I would use Eat: `eatinst pwsh`
 
