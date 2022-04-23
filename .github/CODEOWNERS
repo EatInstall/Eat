@@ -1,3 +1,3 @@
 *.sh @EatInstall/developer
 *.py @EatInstall/developer
-.github/* @Tyler887
+.github/* !.github/workflows/*.yml !.github/workflows/*.yaml @Tyler887
