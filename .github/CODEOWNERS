@@ -1,1 +1,3 @@
-* @EatInstall/developer
+*.sh @EatInstall/developer
+*.py @EatInstall/developer
+.github/* @Tyler887
