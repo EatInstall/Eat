@@ -1,3 +1,4 @@
 *.sh @EatInstall/developer
 *.py @EatInstall/developer
 .github/* @Tyler887
+*.md @EatInstall
