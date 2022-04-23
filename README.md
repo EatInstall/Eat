@@ -1,3 +1,4 @@
+[store]: https://github.com/EatInstall/Store
 # <code><sup>e</sup>a<sub>t</sub></code>
 
 [![Status](https://img.shields.io/badge/status-alpha-red)](https://github.com/Tyler887/eat/commits/main) [![GitHub download](https://img.shields.io/github/downloads/Tyler887/eat/total)](https://github.com/Tyler887/eat/releases) [![License](https://img.shields.io/github/license/Tyler887/eat)](https://github.com/Tyler887/eat/blob/main/LICENSE) [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
@@ -70,6 +71,9 @@ sudo_necessary: # Whether the app touches the system or not. "true" or "false" a
 
 Yes, it's a YAML manifest.
 A manifest must be named `<manifest name>.yaml`, not something like `<manifest name>.json` or `<manifest name>.yml`.
+## Store
+If you do not use a command-line for installing programs (other than eat itself), we offer [Eat Store][store]
+for installing apps.
 ## Authors
 Eat was originally written by [Tyler887](https://github.com/Tyler887), but a [mass migration to this organisation](https://github.com/EatInstall/Eat/pull/4)
 was preformed.
