@@ -1,4 +1,6 @@
+# Source code
 *.sh @EatInstall/developer
 *.py @EatInstall/developer
 .github/* @Tyler887
+# Documentation (markdown)
 *.md @EatInstall/docs
