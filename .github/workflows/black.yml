@@ -39,6 +39,4 @@ jobs:
         run: |
           git config user.Name "github-actions[bot]" --global
           git config user.Email "github-actions[bot]@users.noreply.github.com" --global
-          git add .
-          git commit -m "Black format"
-          git push
+          python black-push.py
