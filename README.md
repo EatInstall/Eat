@@ -73,3 +73,8 @@ A manifest must be named `<manifest name>.yaml`, not something like `<manifest n
 ## Authors
 Eat was originally written by [Tyler887](https://github.com/Tyler887), but a [mass migration to this organisation](https://github.com/EatInstall/Eat/pull/4)
 was preformed.
+## License
+Eat is licensed under the [GNU General Public License](https://gnu.org/licenses/gpl-3.0.html).
+You can read the full text by viewing the [LICENSE](./LICENSE) file.
+
+This means we reserve the right to relicense Eat under another license, e.g. an EULA.
