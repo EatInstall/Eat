@@ -8,5 +8,5 @@
 .github/* @Tyler887 @nekoism
 # Documentation (markdown) is owned by @EatInstall/docs, a subsidiary of @EatInstall/developer
 *.md @EatInstall/docs
-# License - please do not modify it
+# The GNU General Public License file - please do not modify it
 LICENSE @Tyler887
