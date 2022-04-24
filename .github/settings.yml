@@ -12,7 +12,7 @@ repository:
   homepage: https://eatinstall.github.io/
 
   # A comma-separated list of topics to set on the repository
-  topics: eat, package-manager, ci, python, bash, requests, yaml, linux, unix, ubuntu, dependencies
+  topics: eat, package-manager, ci, python, bash, requests, yaml, linux, unix, ubuntu, dependencies, gpl
 
   # Either `true` to make the repository private, or `false` to make it public.
   private: false
