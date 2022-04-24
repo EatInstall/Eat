@@ -1,7 +1,8 @@
 # Source code owned by @EatInstall/developer team
 *.sh @EatInstall/developer
 *.py @EatInstall/developer
-# GitHub specific stuff is owned by @Tyler887
+# GitHub specific stuff (including github actions workflows, this file, and
+# repository settings file) is owned by @Tyler887
 .github/* @Tyler887
 # Documentation (markdown) is owned by @EatInstall/docs, a subsidiary of @EatInstall/developer
 *.md @EatInstall/docs
