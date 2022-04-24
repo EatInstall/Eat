@@ -10,3 +10,5 @@
 *.md @EatInstall/docs
 # The GNU General Public License file - please do not modify it
 LICENSE @Tyler887
+# Dotfiles
+.bashrc
