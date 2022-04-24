@@ -1,4 +1,6 @@
-# Source code owned by @EatInstall/developer team
+# --------------------------------- Eat CodeOwners File --------------------------------- #
+
+# Source code is owned by @EatInstall/developer team
 *.sh @EatInstall/developer
 *.py @EatInstall/developer
 # GitHub specific stuff (including github actions workflows, this file, and
