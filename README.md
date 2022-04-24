@@ -3,8 +3,6 @@
 
 [![Status](https://img.shields.io/badge/status-alpha-red)](https://github.com/Tyler887/eat/commits/main) [![GitHub download](https://img.shields.io/github/downloads/Tyler887/eat/total)](https://github.com/Tyler887/eat/releases) [![License](https://img.shields.io/github/license/Tyler887/eat)](https://github.com/Tyler887/eat/blob/main/LICENSE) [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
-* * *
-
 Eat is the package manager for Linux. It:
 * **Does not even require  `sudo`!**
 * Adds the programs to your PATH
@@ -12,7 +10,6 @@ Eat is the package manager for Linux. It:
 * Makes sharing Linux programs easier
 
 Here's how I would use Eat: `eatinst pwsh`
-
 ## Install
 Simple <sub>(this script was made for BASH)</sub>:
 ```bash
@@ -29,7 +26,7 @@ Usally, `eat` only works in BASH shells. If you would like to edit your shell's 
 ```bash
 nano .<shell>rc
 ```
-If you are a developer and want to install Eat (through the main branch) in your GitHub Actions CI, add
+If you are a developer and want to install Eat (through the dev branch) in your GitHub Actions CI, add
 this as the first step:
 ```yaml
 - name: Install Eat
