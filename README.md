@@ -81,3 +81,4 @@ Eat is licensed under the [GNU General Public License](https://gnu.org/licenses/
 You can read the full text by viewing the [LICENSE](./LICENSE) file.
 
 This means we reserve the right to relicense Eat under another license, e.g. an EULA.
+But it's fine to port Eat to proprietary OSes, but the conditions of the GPL still apply.
