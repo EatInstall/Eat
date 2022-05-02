@@ -20,7 +20,7 @@ bash ./inst-script.sh
 ```
 **Note:** The example above uses `git`, which might not be installed on your Linux distribution. If `git` does not seem to be a command (which you can look for by running `which git`), you can run:
 ```bash
-command "$(curl -fsSL https://raw.githubusercontent.com/Tyler887/eat/main/inst-script.sh -#)"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/Tyler887/eat/main/inst-script.sh -#)"
 ```
 Usally, `eat` only works in BASH shells. If you would like to edit your shell's own init script, run:
 ```bash
