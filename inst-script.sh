@@ -13,7 +13,11 @@ echo "────────────────────────�
 ──────────────────────────────────────────────"
 echo "         Eat Installer 1.0"
 echo ">>> Please enter your password if you are prompted."
-command sudo echo -n "" || echo "Failed to authenticate. Ensure you are in the sudoers file. See message above."  && exit 1
+auth-error() {
+  echo "Failed to authenticate. Ensure you are in the sudoers file. See message above."
+  exit 1
+}
+command sudo echo -n "" || auth-error
 if [ -d "$(eval ~)/Eat-PKG-Manager" ]; then
    echo "You already have eat installed. Did you mean to run 'eathelp' instead?"
    exit 1
