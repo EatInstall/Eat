@@ -11,16 +11,9 @@ Eat is the package manager for Linux. It:
 
 Here's how I would use Eat: `eatinst pwsh`
 ## Install
-Simple <sub>(this script was made for BASH)</sub>:
+Simple:
 ```bash
-git clone htttps://github.com/Tyler887/eat
-cd eat
-bash ./inst-script.sh
-# Then, restart your shell and run 'eathelp' for the manpage
-```
-**Note:** The example above uses `git`, which might not be installed on your Linux distribution. If `git` does not seem to be a command (which you can look for by running `which git`), you can run:
-```bash
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/Tyler887/eat/main/inst-script.sh -#)"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/EatInstall/EatInstaller/HEAD/eatinstaller.sh)"
 ```
 Usally, `eat` only works in BASH shells. If you would like to edit your shell's own init script, run:
 ```bash
@@ -38,16 +31,13 @@ Running Eat on a container is *simple*:
 docker pull ghcr.io/eatinstall/eat:dev
 ```
 **Note: This method installls from the `dev` branch. It is highly recommended to do a proper install instead.**
-### Ubuntu recovery mode install
-1. Hold <kbd>Shift</kbd> on boot until the GRUB2 menu appears.
-2. Select `Advanced options for Ubuntu` and choose the second option.
-3. When Ubuntu starts up recovery mode, select `network` then confirm with "Yes".
-   This is because Git and APT cannot reach the internet without networking mode.
-5. Select `root` after networking mode for Recovery Mode is set up, then enter `root`'s password.
-6. Run `su <your own UNIX user name>` to actually install to your user (else `eat` only works for the `root` user).
-7. Follow the steps above.
-8. Run `reboot`, hold <kbd>Shift</kbd>, select `Advanced options for Ubuntu` -> the second option, select `network` > `Yes` > `root`, enter `root`'s password, run `su <your own UNIX user name>`, and try it out using `eatinst setup-eat`. This will usally initiate the sources, because there's no `setup-eat.yaml` in the manifest network.
-9. `reboot` your system without going into GRUB.
+### Legacy installer
+The legacy installer can still be run on Debian, if you cannot run the new GUI version:
+```bash
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/EatInstall/Eat/HEAD/inst-script.sh)"
+```
+This script only works on Debian and it's derivatives. If you do not use any of the derivatives or
+Debian itself, you must use [EatInstaller](#install).
 ## Upgrading
 If your installation is out of date (which Eat normally tells you) or you have out-of-date sources,
 you should upgrade both of them.
