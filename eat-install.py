@@ -1,7 +1,5 @@
 import sys
 
-if sys.version_info.major == 1:  # if running python 1, do nothing
-    exit()
 import sys as c
 import os as posix_tools
 import argparse
@@ -75,7 +73,7 @@ if c.version_info.major == 2:
     raise NotCompatibleWithPython2Error(
         "eat must be run on python 3+, you are using python 2, UPGRADE YOUR PYTHON FOR SECURITY."
     )
-elif c.version_info == 3 and c.version_info.minor < 8:
+elif c.version_info.major == 3 and c.version_info.minor < 8:
     raise UnsupportedPython3VersionError(
         "eat must be run on python 3.8 or newer, upgrade your python"
     )
@@ -139,7 +137,7 @@ elif args.system:
     globalInstall = 1
 if not posix_tools.path.isfile(f"{UserHome}/eat_sources/{args.target}.yaml"):
     print(
-        f"{Fore.RED}Error [EAT_ERROR_NO_MANIFEST error code 0x80]:{Style.RESET_ALL} Could not find the program \"{args.target}\". This is not my fault, it's the network's\nfault. The network is open-source, feel free to add your own manifests:\n     > https://github.com/Tyler887/eat-network/fork\nor see a list of avaliable packages:\n     > https://github.com/Tyler887/eat-network/tree/main\nHappy packaging! :)\n{Fore.LIGHTBLACK_EX}Note: You might have outdated sources, try upgrading them by running:\nbash ~/Eat-PKG-Manager/update.sh"
+        f"{Fore.RED}Error [EAT_ERROR_NO_MANIFEST error code 0x80]:{Style.RESET_ALL} Could not find the program \"{args.target}\". This is not my fault, it's the network's\nfault. The network is open-source, feel free to add your own manifests:\n     > https://github.com/Tyler887/eat-network/fork\nor see a list of avaliable packages:\n     > https://github.com/Tyler887/eat-network/tree/main\nHappy packaging! :)\n{Fore.LIGHTBLACK_EX}Note: You might have outdated sources, try upgrading them by running:\nbash ~/Eat-PKG-Manager/update.sh{Style.RESET_ALL}"
     )
     exit(1)
 with open(f"{UserHome}/eat_sources/{args.target}.yaml", "r") as manifest:
