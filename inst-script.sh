@@ -13,7 +13,7 @@ echo "────────────────────────�
 ──────────────────────────────────────────────"
 echo "         Eat Installer 1.0"
 echo ""
-echo "[NOTE: Try the new installer: https://github.com/EatInstall/EatInstaller]"
+echo "[NOTE: Try the new multi-distro installer: https://github.com/EatInstall/EatInstaller]"
 echo ">>> Please enter your password if you are prompted."
 auth-error() {
   echo "Failed to authenticate. Ensure you are in the sudoers file. See message above."
