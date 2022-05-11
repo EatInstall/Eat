@@ -11,10 +11,10 @@ Eat is the package manager for Linux. It:
 
 Here's how I would use Eat: `eatinst pwsh`
 
-While Eat is specific to Debian and Ubuntu, Eat can be ran on almost any Linux
-distribution. Eat provides rootless install, so you don't have to use the `root`
-userwhen you need to install software. And if you are root, you can globally
-install programs to `/usr/bin`.
+While Eat is specific to Debian and Ubuntu, Eat can be installed and ran on
+almost any Linux distribution. Eat provides rootless install, so you don't
+have to use the `root`user when you need to install software. And if you use
+`sudo`, you can globally install programs to `/usr/bin`.
 ## Install
 Simple:
 ```bash
