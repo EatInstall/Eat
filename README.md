@@ -13,9 +13,9 @@ Here's how I would use Eat: `eatinst pwsh`
 
 While Eat is specific to Debian and Ubuntu, Eat can be installed and ran on
 almost any Linux distribution. Eat provides rootless install, so you don't
-have to use the `root`user when you need to install software. And if you use
-`sudo`, you can globally install programs to `/usr/bin` with `sudo python3 /home/$(whoami)/eat-install.py --system <program>`
-(pretty advanced).
+have to use the `root` user when you need to install software. And if you use
+`sudo`, you can globally install programs to `/usr/bin` with the long command
+`sudo python3 /home/$(whoami)/eat-install.py --system <program>` (pretty advanced).
 ## Install
 Simple:
 ```bash
