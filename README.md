@@ -29,7 +29,7 @@ If you are a developer and want to install Eat (through the dev branch) in your 
 this as the first step:
 ```yaml
 - name: Install Eat
-  uses: Eat/GitHub-Setup@v1.1
+  uses: EatInstall/GitHub-Setup@v1.1
 ```
 ### ⚙️ Eat as a Service (EaaS) [[more info](https://github.com/EatInstall/Eat/pkgs/container/eat)]
 Running Eat on a container is *simple*:
